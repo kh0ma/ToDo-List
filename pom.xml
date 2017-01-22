@@ -2,8 +2,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.herokuapp.todolist-kh0ma</groupId>
-    <artifactId>ToDo List</artifactId>
+    <groupId>com.herokuapp</groupId>
+    <artifactId>todolist-kh0ma</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
