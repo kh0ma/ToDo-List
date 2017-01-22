@@ -29,6 +29,7 @@ CREATE TABLE projects
 (
   id        INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
   name      VARCHAR NOT NULL,
+  created   TIMESTAMP NOT NULL DEFAULT now(),
   user_id   INTEGER NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
@@ -39,6 +40,7 @@ CREATE TABLE tasks
   name       VARCHAR NOT NULL,
   status     BOOL DEFAULT FALSE,
   priority   INTEGER NOT NULL DEFAULT 1,
+  created    TIMESTAMP NOT NULL DEFAULT now(),
   deadline   TIMESTAMP,
   project_id INTEGER NOT NULL,
   FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE
