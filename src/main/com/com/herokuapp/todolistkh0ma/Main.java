@@ -1,5 +1,6 @@
 package com.herokuapp.todolistkh0ma;
 
+import com.herokuapp.todolistkh0ma.model.Task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
