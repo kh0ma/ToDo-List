@@ -1,22 +1,50 @@
 package com.herokuapp.todolistkh0ma.model;
 
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.util.CollectionUtils;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
 
 /**
  * Created by kh0ma on 22.01.17.
  */
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Entity
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "email", name = "users_unique_email_idx")})
 public class User extends BaseEntity {
 
+    @Column(name = "email", nullable = false, unique = true)
+    @Email
+    @NotEmpty
     protected String email;
 
+    @Column(name = "password", nullable = false)
+    @NotEmpty
+    @Length(min = 5)
     protected String password;
 
+    @Column(name = "enabled", nullable = false)
     protected boolean enabled = true;
 
+    @Column(name = "registered", columnDefinition = "timestamp default now()")
     protected LocalDateTime registered = LocalDateTime.now();
 
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "role")
+    @ElementCollection(fetch = FetchType.EAGER)
+    @BatchSize(size = 200)
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     protected Set<Role> roles;
 
     public User() {
@@ -73,6 +101,10 @@ public class User extends BaseEntity {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = CollectionUtils.isEmpty(roles) ? Collections.emptySet() : EnumSet.copyOf(roles);
     }
 
     @Override
