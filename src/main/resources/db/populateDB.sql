@@ -12,10 +12,10 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('ROLE_ADMIN',  100001),
   ('ROLE_USER',   100001);
 
-INSERT INTO projects (name, user_id) VALUES
-  ('Business',  100000),
-  ('Home',      100000),
-  ('Tests',     100001);
+INSERT INTO projects (name, user_id, created) VALUES
+  ('Business',  100000, '2017-01-15 12:00:00'),
+  ('Home',      100000, '2017-01-20 18:00:00'),
+  ('Tests',     100001, '2017-01-10 11:00:00');
 
 INSERT INTO tasks (name, project_id) VALUES
   ('Revise the contract', 100002),
