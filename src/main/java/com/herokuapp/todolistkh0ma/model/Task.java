@@ -10,6 +10,7 @@ public class Task extends BaseEntity {
     private Priority priority;
     private LocalDateTime deadLine;
     private Project project;
+    private LocalDateTime created;
 
     public Task(String name)
     {
