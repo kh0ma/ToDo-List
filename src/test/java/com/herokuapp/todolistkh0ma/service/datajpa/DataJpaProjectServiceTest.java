@@ -16,7 +16,8 @@ import static com.herokuapp.todolistkh0ma.UserTestData.USER_ID;
 /**
  * Created by kh0ma on 23.01.17.
  */
-public class DataJpaProjectServiceTest extends AbstractServiceTest{
+public class DataJpaProjectServiceTest extends AbstractServiceTest {
+
     @Autowired
     private ProjectService service;
 

@@ -20,8 +20,8 @@ public interface CrudProjectRepository extends JpaRepository<Project, Integer> {
     @Query("DELETE FROM Project p WHERE p.id=:id AND p.user.id=:userId")
     int delete(@Param("id") int id, @Param("userId") int userId);
 
-    @Override
-    Project save(Project project);
+/*    @Override
+    Project save(Project project);*/
 
     @Query("SELECT p FROM Project p WHERE p.user.id=:userId ORDER BY p.created DESC")
     List<Project> getAll(@Param("userId") int userId);
