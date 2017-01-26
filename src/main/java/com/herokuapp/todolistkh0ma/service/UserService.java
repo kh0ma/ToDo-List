@@ -1,6 +1,7 @@
 package com.herokuapp.todolistkh0ma.service;
 
 import com.herokuapp.todolistkh0ma.model.User;
+import com.herokuapp.todolistkh0ma.to.UserTo;
 import com.herokuapp.todolistkh0ma.util.exception.NotFoundException;
 
 import java.util.List;
@@ -23,4 +24,8 @@ public interface UserService {
     void update(User user);
 
     void evictCache();
+
+    void enable(int id, boolean enable);
+
+    void update(UserTo user);
 }
