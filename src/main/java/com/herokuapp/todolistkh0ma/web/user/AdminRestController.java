@@ -1,7 +1,6 @@
-package com.herokuapp.todolistkh0ma.rest.user;
+package com.herokuapp.todolistkh0ma.web.user;
 
 import com.herokuapp.todolistkh0ma.model.User;
-import com.herokuapp.todolistkh0ma.rest.AbstractUserController;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping(AdminRestController.REST_URL)
 public class AdminRestController extends AbstractUserController {
-    public static final String REST_URL = "/rest/admin/users";
+    public static final String REST_URL = "/web/admin/users";
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getAll() {

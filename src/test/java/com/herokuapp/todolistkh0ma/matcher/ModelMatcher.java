@@ -1,7 +1,7 @@
 package com.herokuapp.todolistkh0ma.matcher;
 
 import com.herokuapp.todolistkh0ma.TestUtil;
-import com.herokuapp.todolistkh0ma.rest.json.JsonUtil;
+import com.herokuapp.todolistkh0ma.web.json.JsonUtil;
 import org.junit.Assert;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.ResultMatcher;

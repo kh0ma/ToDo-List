@@ -1,8 +1,7 @@
-package com.herokuapp.todolistkh0ma.rest.user;
+package com.herokuapp.todolistkh0ma.web.user;
 
 import com.herokuapp.todolistkh0ma.AuthorizedUser;
 import com.herokuapp.todolistkh0ma.model.User;
-import com.herokuapp.todolistkh0ma.rest.AbstractUserController;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(ProfileRestController.REST_URL)
 public class ProfileRestController extends AbstractUserController {
-    static final String REST_URL = "/rest/profile";
+    static final String REST_URL = "/web/profile";
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public User get() {

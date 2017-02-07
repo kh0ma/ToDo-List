@@ -1,4 +1,4 @@
-package com.herokuapp.todolistkh0ma.rest;
+package com.herokuapp.todolistkh0ma.web.user;
 
 import com.herokuapp.todolistkh0ma.model.User;
 import com.herokuapp.todolistkh0ma.service.UserService;

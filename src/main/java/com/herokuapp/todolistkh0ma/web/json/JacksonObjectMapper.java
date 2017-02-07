@@ -1,4 +1,4 @@
-package com.herokuapp.todolistkh0ma.rest.json;
+package com.herokuapp.todolistkh0ma.web.json;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonInclude;

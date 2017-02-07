@@ -2,7 +2,6 @@ package com.herokuapp.todolistkh0ma.web.json;
 
 import com.herokuapp.todolistkh0ma.TaskTestData;
 import com.herokuapp.todolistkh0ma.model.Task;
-import com.herokuapp.todolistkh0ma.rest.json.JsonUtil;
 import org.junit.Test;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.herokuapp.todolistkh0ma.rest.json;
+package com.herokuapp.todolistkh0ma.web.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectReader;
@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import java.io.IOException;
 import java.util.List;
 
-import static com.herokuapp.todolistkh0ma.rest.json.JacksonObjectMapper.getMapper;
+import static com.herokuapp.todolistkh0ma.web.json.JacksonObjectMapper.getMapper;
 
 /**
  * Created by kh0ma on 26.01.17.
