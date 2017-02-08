@@ -71,7 +71,6 @@ public class Project extends BaseEntity {
         return "Project{" +
                 "id=" + getId() +
                 ", name=" + getName() +
-                ", user=" + getUser().getId() +
                 ", created=" + getCreated() +
                 '}';
     }

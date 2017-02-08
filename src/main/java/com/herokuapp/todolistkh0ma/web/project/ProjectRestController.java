@@ -2,8 +2,11 @@ package com.herokuapp.todolistkh0ma.web.project;
 
 import com.herokuapp.todolistkh0ma.model.Project;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -35,8 +38,13 @@ public class ProjectRestController extends AbstractProjectController{
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createWithLocation(@RequestBody Project project) {
-        super.create(project);
-    }
+    public ResponseEntity<Project> createWithLocation(@RequestBody Project project) {
+        Project created = super.create(project);
 
+        URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path(REST_URL + "/{id}")
+                .buildAndExpand(created.getId()).toUri();
+
+        return ResponseEntity.created(uriOfNewResource).body(created);
+    }
 }
