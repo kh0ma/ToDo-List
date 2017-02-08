@@ -2,8 +2,11 @@ package com.herokuapp.todolistkh0ma.web.task;
 
 import com.herokuapp.todolistkh0ma.model.Task;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -25,7 +28,7 @@ public class TaskRestController extends AbstractTaskController {
         return super.get(id,projectId);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable("projectId") int projectId,
                        @PathVariable("id") int id) {
         super.delete(id,projectId);
@@ -39,8 +42,14 @@ public class TaskRestController extends AbstractTaskController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void createWithLocation(@RequestBody Task task,
-                                   @PathVariable("projectId") int projectId) {
-        super.create(task, projectId);
+    public ResponseEntity<Task> createWithLocation(@RequestBody Task task,
+                                                   @PathVariable("projectId") int projectId) {
+        Task created = super.create(task, projectId);
+
+        URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path(REST_URL + "/{id}")
+                .buildAndExpand(created.getProject().getId(),created.getId()).toUri();
+
+        return ResponseEntity.created(uriOfNewResource).body(created);
     }
 }

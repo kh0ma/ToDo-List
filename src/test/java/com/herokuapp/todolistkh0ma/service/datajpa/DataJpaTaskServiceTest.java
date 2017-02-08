@@ -1,6 +1,5 @@
 package com.herokuapp.todolistkh0ma.service.datajpa;
 
-import com.herokuapp.todolistkh0ma.TaskTestData;
 import com.herokuapp.todolistkh0ma.model.Task;
 import com.herokuapp.todolistkh0ma.service.AbstractServiceTest;
 import com.herokuapp.todolistkh0ma.service.TaskService;
@@ -13,7 +12,6 @@ import java.util.Arrays;
 import static com.herokuapp.todolistkh0ma.ProjectTestData.PROJECT1_ID;
 import static com.herokuapp.todolistkh0ma.ProjectTestData.PROJECT2_ID;
 import static com.herokuapp.todolistkh0ma.TaskTestData.*;
-import static com.herokuapp.todolistkh0ma.UserTestData.USER;
 import static com.herokuapp.todolistkh0ma.UserTestData.USER_ID;
 
 /**
@@ -41,11 +39,11 @@ public class DataJpaTaskServiceTest extends AbstractServiceTest {
 
     @Test
     public void testSave() throws Exception {
-        Task created = getGreated();
+        Task created = getCreated();
         service.save(created, PROJECT1_ID, USER_ID);
         MATCHER.assertCollectionEquals(Arrays.asList(TASK4, TASK3, TASK2, TASK1, created), service.getAll(PROJECT1_ID, USER_ID));
 
-        Task created2 = getGreated();
+        Task created2 = getCreated();
         service.save(created2, PROJECT2_ID, USER_ID);
         MATCHER.assertCollectionEquals(Arrays.asList(TASK8, TASK7, TASK6, TASK5, created2), service.getAll(PROJECT2_ID, USER_ID));
     }
@@ -67,7 +65,7 @@ public class DataJpaTaskServiceTest extends AbstractServiceTest {
 
     @Test
     public void testUpdate() throws Exception {
-        Task updated = getUdated();
+        Task updated = getUpdated();
         service.update(updated, PROJECT1_ID, USER_ID);
         MATCHER.assertEquals(updated, service.get(TASK1_ID, PROJECT1_ID, USER_ID));
     }

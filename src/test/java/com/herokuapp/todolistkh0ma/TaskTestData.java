@@ -51,12 +51,12 @@ public class TaskTestData {
     public static final List<Task> TASKS_PJ1 = Arrays.asList(TASK4,TASK3,TASK2,TASK1);
     public static final List<Task> TASKS_PJ2 = Arrays.asList(TASK8,TASK7,TASK6,TASK5);
 
-    public static Task getGreated()
+    public static Task getCreated()
     {
         return new Task(null,"New Task",false,VERY_HIGH,of(1999,DECEMBER,1,12,0),PROJECT1,of(1998,JUNE,17,11,6), USER);
     }
 
-    public static Task getUdated()
+    public static Task getUpdated()
     {
         return new Task(TASK1_ID,TASK1.getName()+" Updated",TASK1.isStatus(),TASK1.getPriority(),TASK1.getDeadLine(),TASK1.getProject(),TASK1.getCreated(), USER);
     }

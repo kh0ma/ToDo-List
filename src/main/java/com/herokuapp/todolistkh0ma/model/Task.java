@@ -152,7 +152,6 @@ public class Task extends BaseEntity {
                 ", status=" + isStatus() +
                 ", priority=" + getPriority() +
                 ", deadLine=" + getDeadLine() +
-                ", project=" + getProject().getId() +
                 ", created=" + getCreated() +
                 '}';
     }
