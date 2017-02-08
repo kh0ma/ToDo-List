@@ -20,29 +20,29 @@ public class TaskServiceImpl implements TaskService {
     private TaskRepository repository;
 
     @Override
-    public Task save(Task task, int projectId) {
+    public Task save(Task task, int projectId, int userId) {
         Assert.notNull(task, "task must not be null");
-        return repository.save(task, projectId);
+        return repository.save(task, projectId, userId);
     }
 
     @Override
-    public void delete(int id, int projectId) throws NotFoundException {
-        ExceptionUtil.checkNotFoundWithId(repository.delete(id,projectId),id);
+    public void delete(int id, int projectId, int userId) throws NotFoundException {
+        ExceptionUtil.checkNotFoundWithId(repository.delete(id,projectId, userId),id);
     }
 
     @Override
-    public Task get(int id, int projectId) throws NotFoundException {
-        return ExceptionUtil.checkNotFoundWithId(repository.get(id,projectId),id);
+    public Task get(int id, int projectId, int userId) throws NotFoundException {
+        return ExceptionUtil.checkNotFoundWithId(repository.get(id,projectId, userId),id);
     }
 
     @Override
-    public List<Task> getAll(int projectId) {
-        return repository.getAll(projectId);
+    public List<Task> getAll(int projectId, int userId) {
+        return repository.getAll(projectId, userId);
     }
 
     @Override
-    public Task update(Task task, int projectId) throws NotFoundException {
+    public Task update(Task task, int projectId, int userId) throws NotFoundException {
         Assert.notNull(task,"task must not be null");
-        return ExceptionUtil.checkNotFoundWithId(repository.save(task,projectId),task.getId());
+        return ExceptionUtil.checkNotFoundWithId(repository.save(task,projectId, userId),task.getId());
     }
 }

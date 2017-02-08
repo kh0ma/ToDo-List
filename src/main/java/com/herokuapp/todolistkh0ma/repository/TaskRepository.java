@@ -9,14 +9,14 @@ import java.util.List;
  */
 public interface TaskRepository {
     // null if updated task do not belong to project
-    Task save(Task task, int projectId);
+    Task save(Task task, int projectId, int userId);
 
     // false if task do not belong to project
-    boolean delete(int id, int projectId);
+    boolean delete(int id, int projectId, int userId);
 
     // null if task do not belong to project
-    Task get(int id, int projectId);
+    Task get(int id, int projectId, int userId);
 
     // ORDERED by created
-    List<Task> getAll(int projectId);
+    List<Task> getAll(int projectId, int userId);
 }

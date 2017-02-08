@@ -31,6 +31,10 @@ public class Task extends BaseEntity {
     @Column(name = "created", nullable = false)
     private LocalDateTime created;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     public Task() {
     }
 
@@ -42,13 +46,14 @@ public class Task extends BaseEntity {
         this.priority = priority;
     }
 
-    public Task(Integer id, String name, boolean status, Priority priority, LocalDateTime deadLine, Project project, LocalDateTime created) {
+    public Task(Integer id, String name, boolean status, Priority priority, LocalDateTime deadLine, Project project, LocalDateTime created, User user) {
         super(id, name);
         this.status = status;
         this.priority = priority;
         this.deadLine = deadLine;
         this.project = project;
         this.created = created;
+        this.user = user;
     }
 
     public Task(String name)
@@ -83,6 +88,14 @@ public class Task extends BaseEntity {
 
     public Project getProject() {
         return project;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setProject(Project project) {

@@ -1,5 +1,6 @@
 package com.herokuapp.todolistkh0ma.web.project;
 
+import com.herokuapp.todolistkh0ma.AuthorizedUser;
 import com.herokuapp.todolistkh0ma.model.Project;
 import com.herokuapp.todolistkh0ma.service.ProjectService;
 import org.slf4j.Logger;
@@ -17,32 +18,37 @@ public abstract class AbstractProjectController {
     @Autowired
     private ProjectService service;
 
-    public List<Project> getAll(int userId)
+    public List<Project> getAll()
     {
-        log.info("getAll Projects");
+        int userId = AuthorizedUser.id();
+        log.info("getAll projects for User {}", userId);
         return service.getAll(userId);
     }
 
-    public Project get(int id, int userId)
+    public Project get(int id)
     {
-        log.info("getOne Project");
+        int userId = AuthorizedUser.id();
+        log.info("get project {} for User {}", id, userId);
         return service.get(id,userId);
     }
 
-    public Project create(Project project, int userId) {
+    public Project create(Project project) {
+        int userId = AuthorizedUser.id();
         project.setId(null);
-        log.info("create Project " + project);
+        log.info("create project {} for User {}", project, userId);
         return service.save(project, userId);
     }
 
-    public void delete(int id, int userId) {
-        log.info("delete Project " + id);
+    public void delete(int id) {
+        int userId = AuthorizedUser.id();
+        log.info("delete Project for User {}" + id);
         service.delete(id, userId);
     }
 
-    public void update(Project project, int userId) {
-        project.setId(userId);
-        log.info("update Project " + project);
+    public void update(Project project, int id) {
+        int userId = AuthorizedUser.id();
+        project.setId(id);
+        log.info("update project {} for User {} ", project, userId);
         service.update(project, userId);
     }
 }

@@ -43,7 +43,9 @@ CREATE TABLE tasks
   priority   INTEGER NOT NULL DEFAULT 1,
   deadline   TIMESTAMP,
   project_id INTEGER NOT NULL,
-  FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE
+  FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE,
+  user_id    INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
 

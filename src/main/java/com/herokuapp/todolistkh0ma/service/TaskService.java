@@ -10,13 +10,13 @@ import java.util.List;
  */
 public interface TaskService {
 
-    Task save(Task task, int projectId);
+    Task save(Task task, int projectId, int userId);
 
-    void delete(int id, int projectId) throws NotFoundException;
+    void delete(int id, int projectId, int userId) throws NotFoundException;
 
-    Task get(int id, int projectId) throws NotFoundException;
+    Task get(int id, int projectId, int userId) throws NotFoundException;
 
-    List<Task> getAll(int projectId);
+    List<Task> getAll(int projectId, int userId);
 
-    Task update(Task task, int projectId) throws NotFoundException;
+    Task update(Task task, int projectId, int userId) throws NotFoundException;
 }
