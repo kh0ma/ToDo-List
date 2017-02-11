@@ -4,6 +4,7 @@ package com.herokuapp.todolistkh0ma.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Created by kh0ma on 22.01.17.
@@ -19,6 +20,14 @@ public class Project extends BaseEntity {
     @NotNull
     @Column(name = "created", nullable = false)
     private LocalDateTime created;
+
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "project")
+    @OrderBy("created DESC")
+    private List<Task> tasks;
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
 
     public Project() {
     }
