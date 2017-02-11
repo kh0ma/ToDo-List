@@ -71,7 +71,7 @@
                 <h1>TODO LIST</h1>
 
             </div>
-            <c:forEach items="${projects}" var="project">
+            <%--<c:forEach items="${projects}" var="project">
                 <jsp:useBean id="project" scope="page" type="com.herokuapp.todolistkh0ma.model.Project"/>
                 <div class="row">
                     <div class="panel panel-group">
@@ -87,7 +87,9 @@
                         </div>
                     </div>
                 </div>
-            </c:forEach>
+            </c:forEach>--%>
+
+            <div id="ajax_project_load"></div>
         </div>
     </div>
 </div>
@@ -95,7 +97,66 @@
 <footer class="container-fluid text-center">
     <p>© kh0ma 2017</p>
 </footer>
+<script type="text/javascript">
+    var ajaxUrl = 'ajax/profile/projects/';
 
+    var projectBefore = "<div class=\"row\"> " +
+            "<div class=\"panel panel-group\" id=\"project_\"> " +
+            "<div class=\"panel panel-heading\" style=\"background: #3434a0; color: white\">";
+    var closeDiv = "</div>";
+    var taskBefore = "<div class=\"panel-body\">";
+
+    function getProjects() {
+        $.ajax({
+            dataType: "json",
+            url: ajaxUrl,
+            data: null,
+            success: function(data) {updateByData(data)}
+        });
+    }
+
+    function getTasks(id) {
+        $.ajax({
+            dataType: "json",
+            url: ajaxUrl+id+"/tasks/",
+            data: null,
+            success: function(data) {
+                $.each(data, function(key, val) {
+                    $.each(val, function(key, val) {
+                        if(key=="name")
+                        {
+                            $("#project_"+id).append(taskBefore + val + closeDiv);
+                            debugger;
+                        }
+                    });
+                });
+            }
+        });
+    }
+
+
+
+    function updateByData(data)
+    {
+        $.each( data, function( key, val ) {
+            var id = 0;
+            $.each( val , function( key, val ) {
+                if(key=="name")
+                $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id) + val + closeDiv);
+                if(key=="id"){
+                    getTasks(val);
+                    id=val;
+                }
+            });
+            $("#ajax_project_load").append(closeDiv + closeDiv);
+        });
+
+    }
+
+    $(function () {
+        getProjects();
+    });
+</script>
 </body>
 
 </html>

@@ -1,6 +1,8 @@
 package com.herokuapp.todolistkh0ma.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -23,6 +25,7 @@ public class Project extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER, mappedBy = "project")
     @OrderBy("created DESC")
+    @JsonIgnore
     private List<Task> tasks;
 
     public List<Task> getTasks() {
