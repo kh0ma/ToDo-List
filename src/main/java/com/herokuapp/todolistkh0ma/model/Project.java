@@ -33,6 +33,7 @@ public class Project extends BaseEntity {
     }
 
     public Project() {
+        this.created = LocalDateTime.now();
     }
 
     public Project(Integer id, String name, User user, LocalDateTime created) {

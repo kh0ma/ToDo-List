@@ -50,6 +50,7 @@
             -o-background-size: cover;
             background-size: cover;
         }
+
     </style>
 </head>
 <body style="background: inherit">
@@ -90,6 +91,29 @@
             </c:forEach>--%>
 
             <div id="ajax_project_load"></div>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addProject">ADD PROJECT</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addProject" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add Project</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="control-label" for="addProjectName" style="align-self: flex-start">Name:</label>
+                                <input type="text" class="form-control" id="addProjectName">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-large btn-primary" type="button" data-dismiss="modal" onclick="addProject()">Ok</button>
+                            <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -105,8 +129,8 @@
             "<div class=\"panel panel-heading\" style=\"background: #3434a0; color: white\">";
     var closeDiv = "</div>";
     var taskBefore = "<div class=\"panel-body\" id=\"task_\">";
-    var buttonProjectDelete = "<button id=\"projectId\" onClick=\"deleteProject(this.id)\">DELETE</button>";
-    var buttonTaskDelete = "<button id=\"taskId\" onClick=\"deleteTask(this.id.split('_')[0],this.id.split('_')[1])\">DELETE</button>";
+    var buttonProjectDelete = "<button id=\"projectId\" onClick=\"deleteProject(this.id)\" type=\"button\" class=\"btn btn-danger\">DELETE</button>";
+    var buttonTaskDelete = "<button id=\"taskId\" onClick=\"deleteTask(this.id.split('_')[0],this.id.split('_')[1])\" type=\"button\" class=\"btn btn-danger\">DELETE</button>";
 
     function getProjects() {
         $("#ajax_project_load").empty();
@@ -147,6 +171,30 @@
             data: null,
         });
         $("#project_"+projectId).remove();
+    }
+
+    function addProject() {
+        var name = $("#addProjectName").val();
+        console.log(JSON.stringify({
+            name:name}));
+        
+        $.ajax({
+            type: "POST",
+            url: ajaxUrl,
+            contentType: "application/json",
+            data: JSON.stringify({
+                name:name}),
+            success: function(data) {
+                var id = 0;
+                $.each( data , function( key, val ) {
+                    if(key=="name")
+                        $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id) + val + buttonProjectDelete.replace("projectId",id) +closeDiv);
+                    if(key=="id"){
+                        id=val;
+                    }
+                });
+            }
+        });
     }
 
     function updateTaskByData(data,projectId) {
