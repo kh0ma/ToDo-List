@@ -2,10 +2,7 @@ package com.herokuapp.todolistkh0ma.web.task;
 
 import com.herokuapp.todolistkh0ma.model.Task;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +15,11 @@ public class AjaxTaskController extends AbstractTaskController{
     @GetMapping
     public List<Task> getAll(@PathVariable("projectId") int projectId) {
         return super.getAll(projectId);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("projectId") int projectId,
+                       @PathVariable("id") int id) {
+        super.delete(id,projectId);
     }
 }

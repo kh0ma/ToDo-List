@@ -66,7 +66,7 @@
 
 <div class="container-fluid text-center container-transparen">
     <div class="row content" >
-        <div class="col-sm-6 text-center col-sm-offset-3" style="height: 100%">
+        <div class="col-sm-6 text-center col-sm-offset-3">
             <div style="height: 70pt">
                 <h1>TODO LIST</h1>
 
@@ -104,45 +104,74 @@
             "<div class=\"panel panel-group\" id=\"project_\"> " +
             "<div class=\"panel panel-heading\" style=\"background: #3434a0; color: white\">";
     var closeDiv = "</div>";
-    var taskBefore = "<div class=\"panel-body\">";
+    var taskBefore = "<div class=\"panel-body\" id=\"task_\">";
+    var buttonProjectDelete = "<button id=\"projectId\" onClick=\"deleteProject(this.id)\">DELETE</button>";
+    var buttonTaskDelete = "<button id=\"taskId\" onClick=\"deleteTask(this.id.split('_')[0],this.id.split('_')[1])\">DELETE</button>";
 
     function getProjects() {
+        $("#ajax_project_load").empty();
         $.ajax({
             dataType: "json",
             url: ajaxUrl,
             data: null,
-            success: function(data) {updateByData(data)}
+            success: function(data) {updateProjectByData(data)}
         });
     }
 
-    function getTasks(id) {
+    function getTasks(projectId) {
         $.ajax({
             dataType: "json",
-            url: ajaxUrl+id+"/tasks/",
+            url: ajaxUrl+projectId+"/tasks/",
             data: null,
             success: function(data) {
-                $.each(data, function(key, val) {
-                    $.each(val, function(key, val) {
-                        if(key=="name")
-                        {
-                            $("#project_"+id).append(taskBefore + val + closeDiv);
-                            debugger;
-                        }
-                    });
-                });
+                updateTaskByData(data,projectId)
             }
         });
     }
 
+    function deleteTask(projectId, taskId) {
+        $.ajax({
+            type: "DELETE",
+            dataType: "json",
+            url: ajaxUrl+projectId+"/tasks/"+taskId,
+            data: null,
+        });
+        $("#task_"+taskId).remove();
+    }
 
+    function deleteProject(projectId) {
+        $.ajax({
+            type: "DELETE",
+            dataType: "json",
+            url: ajaxUrl+projectId,
+            data: null,
+        });
+        $("#project_"+projectId).remove();
+    }
 
-    function updateByData(data)
+    function updateTaskByData(data,projectId) {
+        $.each(data, function(key, val) {
+            var id = 0;
+            $.each(val, function(key, val) {
+                if(key=="name")
+                {
+                    $("#project_"+projectId).append(taskBefore.replace("task_","task_"+id) + val + buttonTaskDelete.replace("taskId", projectId+"_"+id) + closeDiv);
+                    debugger;
+                }
+                if(key=="id"){
+                    id=val;
+                }
+            });
+        });
+    }
+
+    function updateProjectByData(data)
     {
         $.each( data, function( key, val ) {
             var id = 0;
             $.each( val , function( key, val ) {
                 if(key=="name")
-                $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id) + val + closeDiv);
+                $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id) + val + buttonProjectDelete.replace("projectId",id) +closeDiv);
                 if(key=="id"){
                     getTasks(val);
                     id=val;
@@ -153,6 +182,7 @@
 
     }
 
+    /* OnPageLoad */
     $(function () {
         getProjects();
     });

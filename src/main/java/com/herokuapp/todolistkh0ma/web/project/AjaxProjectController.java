@@ -2,9 +2,7 @@ package com.herokuapp.todolistkh0ma.web.project;
 
 import com.herokuapp.todolistkh0ma.model.Project;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,10 @@ public class AjaxProjectController extends AbstractProjectController{
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Project> getAll() {
         return super.getAll();
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") int id) {
+        super.delete(id);
     }
 }
