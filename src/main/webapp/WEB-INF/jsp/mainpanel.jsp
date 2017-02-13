@@ -214,11 +214,11 @@
 
     var tableTasks = "<table class='tasks-table'> <tbody id='tbody_project_'> </tbody></table>";
     var tableRow = "<tr class='tasks-row' id='row_task_'>" +
-            "<td class='table-checkBox' id='checkBox_task_'>checkBox_</td>" +
+            "<td class='table-checkBox' id='checkBox_task_'>_checkBox_</td>" +
             "<td class='table-name'>" +
             "<div class='left-border'>" +
-            "<div class='task-name-text' id='nameDiv_task_'> </div>" +
-            "</div></td><td class='table-controls' id='controls_task_'>Controls_</td></tr>";
+            "<div class='task-name-text' id='nameDiv_task_'>_Name_ </div>" +
+            "</div></td><td class='table-controls' id='controls_task_'>_Controls_</td></tr>";
 
     function getProjects() {
         $("#ajax_project_load").empty();
@@ -248,7 +248,7 @@
             url: ajaxUrl+projectId+"/tasks/"+taskId,
             data: null,
         });
-        $("#task_"+taskId).remove();
+        $("#row_"+taskId).remove();
     }
 
     function deleteProject(projectId) {
@@ -277,7 +277,9 @@
                 $.each( data , function( key, val ) {
                     if(key=="name")
                         $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id)
-                                + val + buttonProjectDelete.replace("projectId",id) +closeDiv);
+                                + val + buttonProjectDelete.replace("projectId",id) + closeDiv
+                                + addTaskPanel.replace(/project_/g,id)
+                                + tableTasks.replace(/project_/g,id));
                     if(key=="id"){
                         id=val;
                     }
@@ -301,8 +303,8 @@
                 var id = 0;
                 $.each( data , function( key, val ) {
                     if(key=="name")
-                        $("#project_"+projectId).append(taskBefore.replace("task_","task_"+id)
-                                + val + buttonTaskDelete.replace("taskId", projectId+"_"+id) + closeDiv);
+                        var row = tableRow.replace(/task_/g,id).replace("_Name_",val).replace("_Controls_",buttonTaskDelete.replace("taskId", projectId+"_"+id));
+                        $("#tbody_"+projectId).prepend(row);
                     if(key=="id"){
                         id=val;
                     }
@@ -317,8 +319,8 @@
             $.each(val, function(key, val) {
                 if(key=="name")
                 {
-                    $("#project_"+projectId).append(taskBefore.replace("task_","task_"+id)
-                            + val + buttonTaskDelete.replace("taskId", projectId+"_"+id) + closeDiv);
+                    var row = tableRow.replace(/task_/g,id).replace("_Name_",val).replace("_Controls_",buttonTaskDelete.replace("taskId", projectId+"_"+id));
+                    $("#tbody_"+projectId).append(row);
                     debugger;
                 }
                 if(key=="id"){
@@ -334,8 +336,10 @@
             var id = 0;
             $.each( val , function( key, val ) {
                 if(key=="name")
-                $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id)
-                        + val + buttonProjectDelete.replace("projectId",id) + closeDiv + addTaskPanel.replace(/project_/g,id));
+                $("#ajax_project_load").prepend(projectBefore.replace("project_","project_"+id)
+                        + val + buttonProjectDelete.replace("projectId",id) + closeDiv
+                        + addTaskPanel.replace(/project_/g,id)
+                        + tableTasks.replace(/project_/g,id));
                 if(key=="id"){
                     getTasks(val);
                     id=val;
