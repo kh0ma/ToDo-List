@@ -51,6 +51,75 @@
             background-size: cover;
         }
 
+        .tasks-table
+        {
+            width: 100%;
+            margin: -1px 0 0;
+        }
+
+        .tasks-row
+        {
+            border-top: 1px solid #E7EBEA;
+            background: #fff;
+            height: 48px;
+        }
+
+        .table-checkBox
+        {
+            border-right: 1px solid #EFDADF;
+            width: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .table-name
+        {
+            font-size: 13px;
+            line-height: 120%;
+            font-weight: bold;
+            color: #999;
+            padding: 0;
+            word-wrap: break-word;
+            word-break: break-all;
+            table-layout: fixed;
+        }
+        .table-controls
+        {
+            width: 120px;
+            border-left: 1px solid #e7ebea;
+            text-align: center;
+            padding: 4px 0 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333333;
+            background-color: #fff;
+        }
+
+        .table-name .left-border {
+            border-left: 1px solid #EFDADF;
+            margin: 0 0 0 2px;
+            padding: 4px;
+            height: 48px;
+        }
+
+        .table-name .task-name-text{
+            display: block;
+            border: 0;
+            padding: 11px 10px;
+            border-radius: 3px;
+            outline: none;
+            width: 100%;
+        }
+
     </style>
 </head>
 <body style="background: inherit">
@@ -59,7 +128,7 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
             </ul>
         </div>
     </div>
@@ -93,7 +162,7 @@
             <div id="ajax_project_load"></div>
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addProject">ADD PROJECT</button>
 
-            <!-- Modal -->
+            <!-- Modal Add Project -->
             <div class="modal fade" id="addProject" role="dialog">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
@@ -126,11 +195,30 @@
 
     var projectBefore = "<div class=\"row\"> " +
             "<div class=\"panel panel-group\" id=\"project_\"> " +
-            "<div class=\"panel panel-heading\" style=\"background: #3434a0; color: white\">";
+            "<div class=\"panel panel-heading\" " +
+            "style=\"background: #3434a0; color: white\"><span class='glyphicon glyphicon-tasks'>";
     var closeDiv = "</div>";
     var taskBefore = "<div class=\"panel-body\" id=\"task_\">";
-    var buttonProjectDelete = "<button id=\"projectId\" onClick=\"deleteProject(this.id)\" type=\"button\" class=\"btn btn-danger\">DELETE</button>";
-    var buttonTaskDelete = "<button id=\"taskId\" onClick=\"deleteTask(this.id.split('_')[0],this.id.split('_')[1])\" type=\"button\" class=\"btn btn-danger\">DELETE</button>";
+    var buttonProjectDelete = "<button id=\"projectId\" " +
+            "onClick=\"deleteProject(this.id)\" " +
+            "type=\"button\" class=\"btn btn-danger\">DELETE</button>";
+    var buttonTaskDelete = "<button id=\"taskId\" " +
+            "onClick=\"deleteTask(this.id.split('_')[0],this.id.split('_')[1])\" " +
+            "type=\"button\" class=\"btn btn-danger\">DELETE</button>";
+
+    var addTaskPanel = "<div class='input-group'>" +
+            "<input type='text' class='form-control' " +
+            "placeholder='Start typing here to create a task...' " +
+            "id='addTaskInput_project_'> <span class='input-group-btn' for='addTaskInput_project_'> " +
+            "<button class='btn' type='submit' onclick='addTask(this.id)' id='addTaskButton_project_'>Add</button> </span> </div>";
+
+    var tableTasks = "<table class='tasks-table'> <tbody id='tbody_project_'> </tbody></table>";
+    var tableRow = "<tr class='tasks-row' id='row_task_'>" +
+            "<td class='table-checkBox' id='checkBox_task_'>checkBox_</td>" +
+            "<td class='table-name'>" +
+            "<div class='left-border'>" +
+            "<div class='task-name-text' id='nameDiv_task_'> </div>" +
+            "</div></td><td class='table-controls' id='controls_task_'>Controls_</td></tr>";
 
     function getProjects() {
         $("#ajax_project_load").empty();
@@ -188,7 +276,33 @@
                 var id = 0;
                 $.each( data , function( key, val ) {
                     if(key=="name")
-                        $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id) + val + buttonProjectDelete.replace("projectId",id) +closeDiv);
+                        $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id)
+                                + val + buttonProjectDelete.replace("projectId",id) +closeDiv);
+                    if(key=="id"){
+                        id=val;
+                    }
+                });
+            }
+        });
+    }
+
+    function addTask(addTaskButtonId) {
+        var projectId = addTaskButtonId.replace("addTaskButton_","");
+        console.log("addTask for "+projectId);
+
+        var name = $("#addTaskInput_"+projectId).val();
+        $.ajax({
+            type: "POST",
+            url: ajaxUrl+projectId+"/tasks/",
+            contentType: "application/json",
+            data: JSON.stringify({
+                name:name}),
+            success: function(data) {
+                var id = 0;
+                $.each( data , function( key, val ) {
+                    if(key=="name")
+                        $("#project_"+projectId).append(taskBefore.replace("task_","task_"+id)
+                                + val + buttonTaskDelete.replace("taskId", projectId+"_"+id) + closeDiv);
                     if(key=="id"){
                         id=val;
                     }
@@ -203,7 +317,8 @@
             $.each(val, function(key, val) {
                 if(key=="name")
                 {
-                    $("#project_"+projectId).append(taskBefore.replace("task_","task_"+id) + val + buttonTaskDelete.replace("taskId", projectId+"_"+id) + closeDiv);
+                    $("#project_"+projectId).append(taskBefore.replace("task_","task_"+id)
+                            + val + buttonTaskDelete.replace("taskId", projectId+"_"+id) + closeDiv);
                     debugger;
                 }
                 if(key=="id"){
@@ -219,7 +334,8 @@
             var id = 0;
             $.each( val , function( key, val ) {
                 if(key=="name")
-                $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id) + val + buttonProjectDelete.replace("projectId",id) +closeDiv);
+                $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id)
+                        + val + buttonProjectDelete.replace("projectId",id) + closeDiv + addTaskPanel.replace(/project_/g,id));
                 if(key=="id"){
                     getTasks(val);
                     id=val;
