@@ -26,6 +26,8 @@
 
     <!--log hibernate showSql-->
     <logger name="org.hibernate.SQL" level="debug"/>
+    <logger name="org.hibernate.type" level="TRACE" />
+
 
     <root level="info">
         <appender-ref ref="file"/>

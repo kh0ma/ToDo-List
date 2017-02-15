@@ -36,8 +36,12 @@ public class Task extends BaseEntity {
     private User user;
 
     public Task() {
-        this.created = LocalDateTime.now();
-        this.priority = Priority.NORMAL;
+        if (created == null) {
+            this.created = LocalDateTime.now();
+        }
+        if (priority == null) {
+            this.priority = Priority.NORMAL;
+        }
     }
 
     public Priority getPriority() {

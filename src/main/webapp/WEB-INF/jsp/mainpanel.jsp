@@ -160,7 +160,9 @@
             </c:forEach>--%>
 
             <div id="ajax_project_load"></div>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addProject">ADD PROJECT</button>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addProject">
+                <span class='glyphicon glyphicon-plus-sign'></span>&nbspADD PROJECT
+            </button>
 
             <!-- Modal Add Project -->
             <div class="modal fade" id="addProject" role="dialog">
@@ -171,13 +173,69 @@
                             <h4 class="modal-title">Add Project</h4>
                         </div>
                         <div class="modal-body">
+                            <form class="form-inline">
                             <div class="form-group">
-                                <label class="control-label" for="addProjectName" style="align-self: flex-start">Name:</label>
+                                <label class="control-label" for="addProjectName" style="align-self: center;">Name:</label>
                                 <input type="text" class="form-control" id="addProjectName">
                             </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-large btn-primary" type="button" data-dismiss="modal" onclick="addProject()">Ok</button>
+                            <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Edit Project -->
+            <div class="modal fade" id="editProject" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Project</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label class="control-label" for="editProjectName" style="align-self: center;">Name:</label>
+                                    <input type="text" class="form-control" id="editProjectName">
+                                    <input type="hidden" id="editProjectId">
+                                    <input type="hidden" id="editProjectCreated">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-large btn-primary" type="button" data-dismiss="modal" onclick="updateProject()">Ok</button>
+                            <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Edit Task -->
+            <div class="modal fade" id="editTask" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Task</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label class="control-label" for="editTaskName" style="align-self: center;">Name:</label>
+                                    <input type="text" class="form-control" id="editTaskName">
+                                    <input type="hidden" id="editTaskId">
+                                    <input type="hidden" id="editTaskCreated">
+                                    <input type="hidden" id="editTaskPriority">
+                                    <input type="hidden" id="editTaskProjectId">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-large btn-primary" type="button" data-dismiss="modal" onclick="updateTask()">Ok</button>
                             <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -196,15 +254,15 @@
     var projectBefore = "<div class=\"row\"> " +
             "<div class=\"panel panel-group\" id=\"project_\"> " +
             "<div class=\"panel panel-heading\" " +
-            "style=\"background: #3434a0; color: white\"><span class='glyphicon glyphicon-tasks'>";
+            "style=\"background: #3434a0; color: white\"><span class='glyphicon glyphicon-tasks'></span>";
+    var projectHeaderName = "<strong id='projectHeaderName_project_'>_ProjectName_</strong>";
     var closeDiv = "</div>";
-    var taskBefore = "<div class=\"panel-body\" id=\"task_\">";
-    var buttonProjectDelete = "<button id=\"projectId\" " +
+    var buttonProjectDelete = "<a id=\"projectId\" " +
             "onClick=\"deleteProject(this.id)\" " +
-            "type=\"button\" class=\"btn btn-danger\">DELETE</button>";
-    var buttonTaskDelete = "<button id=\"taskId\" " +
+            "type=\"button\"><span class='glyphicon glyphicon-trash'></span></a>";
+    var buttonTaskDelete = "<a id=\"taskId\" " +
             "onClick=\"deleteTask(this.id.split('_')[0],this.id.split('_')[1])\" " +
-            "type=\"button\" class=\"btn btn-danger\">DELETE</button>";
+            "type=\"button\"><span class='glyphicon glyphicon-trash'></a>";
 
     var addTaskPanel = "<div class='input-group'>" +
             "<input type='text' class='form-control' " +
@@ -219,6 +277,96 @@
             "<div class='left-border'>" +
             "<div class='task-name-text' id='nameDiv_task_'>_Name_ </div>" +
             "</div></td><td class='table-controls' id='controls_task_'>_Controls_</td></tr>";
+
+    var buttonProjectEdit = "<a id='editProject_projectId_' onClick='editProject(this.id)' data-toggle='modal' data-target='#editProject'><span class='glyphicon glyphicon-pencil'></span></a>";
+
+    var buttonTaskEdit = "<a id='editTask_taskId' onClick=\"editTask(this.id.split('_')[1], this.id.split('_')[2])\" data-toggle='modal' data-target='#editTask'><span class='glyphicon glyphicon-pencil'></span></a>";
+
+    function editProject(button_id)
+    {
+        var projectID = button_id.replace("editProject_","");
+        $.ajax({
+            dataType: "json",
+            url: ajaxUrl+projectID,
+            data: null,
+            success: function(data) {
+                $("#editProjectName").val(data.name);
+                $("#editProjectId").val(data.id);
+                $("#editProjectCreated").val(data.created);
+            }
+        })
+    }
+
+    function editTask(projectId,taskId)
+    {
+        $.ajax({
+            dataType: "json",
+            url: ajaxUrl+projectId + "/tasks/" + taskId,
+            data: null,
+            success: function(data) {
+                $("#editTaskName").val(data.name);
+                $("#editTaskId").val(data.id);
+                $("#editTaskCreated").val(data.created);
+                $("#editTaskPriority").val(data.priority);
+                $("#editTaskProjectId").val(projectId);
+            }
+        })
+    }
+
+    function updateProject() {
+        var name = $("#editProjectName").val();
+        var projectId = $("#editProjectId").val();
+        var created = $("#editProjectCreated").val();
+        console.log(JSON.stringify({
+            name:name,
+            id:projectId
+        }));
+
+        $.ajax({
+            type: "PUT",
+            url: ajaxUrl+projectId,
+            contentType: "application/json",
+            data: JSON.stringify({
+                id:projectId,
+                created: created,
+                name:name}),
+            success: function() {
+                $("#projectHeaderName_"+projectId).empty();
+                $("#projectHeaderName_"+projectId).append(name);
+            }
+        });
+    }
+
+    function updateTask() {
+        var name = $("#editTaskName").val();
+        var id = $("#editTaskId").val();
+        var created = $("#editTaskCreated").val();
+        var priority = $("#editTaskPriority").val();
+        var projectId = $("#editTaskProjectId").val();
+        console.log(JSON.stringify({
+            id:id,
+            created: created,
+            name:name,
+            project_id: projectId,
+            priority: priority
+        }));
+
+        $.ajax({
+            type: "PUT",
+            url: ajaxUrl+projectId+"/tasks/"+id,
+            contentType: "application/json",
+            data: JSON.stringify({
+                id:id,
+                created: created,
+                name:name,
+                priority: priority
+            }),
+            success: function() {
+                $("#nameDiv_"+id).empty();
+                $("#nameDiv_"+id).append(name);
+            }
+        });
+    }
 
     function getProjects() {
         $("#ajax_project_load").empty();
@@ -277,7 +425,7 @@
                 $.each( data , function( key, val ) {
                     if(key=="name")
                         $("#ajax_project_load").append(projectBefore.replace("project_","project_"+id)
-                                + val + buttonProjectDelete.replace("projectId",id) + closeDiv
+                                + projectHeaderName.replace("project_",id).replace("_ProjectName_",val) + buttonProjectDelete.replace("projectId",id) + buttonProjectEdit.replace("projectId_",id) + closeDiv
                                 + addTaskPanel.replace(/project_/g,id)
                                 + tableTasks.replace(/project_/g,id));
                     if(key=="id"){
@@ -303,7 +451,7 @@
                 var id = 0;
                 $.each( data , function( key, val ) {
                     if(key=="name")
-                        var row = tableRow.replace(/task_/g,id).replace("_Name_",val).replace("_Controls_",buttonTaskDelete.replace("taskId", projectId+"_"+id));
+                        var row = tableRow.replace(/task_/g,id).replace("_Name_",val).replace("_Controls_",buttonTaskDelete.replace("taskId", projectId+"_"+id) + buttonTaskEdit.replace("taskId",projectId+"_"+id));
                         $("#tbody_"+projectId).prepend(row);
                     if(key=="id"){
                         id=val;
@@ -319,9 +467,8 @@
             $.each(val, function(key, val) {
                 if(key=="name")
                 {
-                    var row = tableRow.replace(/task_/g,id).replace("_Name_",val).replace("_Controls_",buttonTaskDelete.replace("taskId", projectId+"_"+id));
+                    var row = tableRow.replace(/task_/g,id).replace("_Name_",val).replace("_Controls_",buttonTaskDelete.replace("taskId", projectId+"_"+id) + buttonTaskEdit.replace("taskId",projectId+"_"+id));
                     $("#tbody_"+projectId).append(row);
-                    debugger;
                 }
                 if(key=="id"){
                     id=val;
@@ -337,7 +484,7 @@
             $.each( val , function( key, val ) {
                 if(key=="name")
                 $("#ajax_project_load").prepend(projectBefore.replace("project_","project_"+id)
-                        + val + buttonProjectDelete.replace("projectId",id) + closeDiv
+                        + projectHeaderName.replace("project_",id).replace("_ProjectName_",val) + buttonProjectDelete.replace("projectId",id) + buttonProjectEdit.replace("projectId_",id) + closeDiv
                         + addTaskPanel.replace(/project_/g,id)
                         + tableTasks.replace(/project_/g,id));
                 if(key=="id"){

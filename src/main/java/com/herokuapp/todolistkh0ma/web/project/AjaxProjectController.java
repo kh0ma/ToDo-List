@@ -40,4 +40,14 @@ public class AjaxProjectController extends AbstractProjectController{
 
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
+
+    @GetMapping("/{id}")
+    public Project get(@PathVariable("id") int id) {
+        return super.get(id);
+    }
+
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void update(@RequestBody Project project, @PathVariable("id") int id) {
+        super.update(project, id);
+    }
 }

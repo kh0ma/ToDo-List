@@ -42,4 +42,17 @@ public class AjaxTaskController extends AbstractTaskController{
 
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
+
+    @GetMapping("/{id}")
+    public Task get(@PathVariable("projectId") int projectId,
+                    @PathVariable("id") int id) {
+        return super.get(id,projectId);
+    }
+
+    @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void update(@RequestBody Task task,
+                       @PathVariable("projectId") int projectId,
+                       @PathVariable("id") int id) {
+        super.update(task, id, projectId);
+    }
 }
