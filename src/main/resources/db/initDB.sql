@@ -38,7 +38,7 @@ CREATE TABLE tasks
 (
   id         INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
   name       VARCHAR NOT NULL,
-  status     BOOL DEFAULT FALSE,
+  done     BOOL DEFAULT FALSE,
   created    TIMESTAMP NOT NULL DEFAULT now(),
   priority   INTEGER NOT NULL DEFAULT 1,
   deadline   TIMESTAMP,

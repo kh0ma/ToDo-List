@@ -19,4 +19,6 @@ public interface TaskService {
     List<Task> getAll(int projectId, int userId);
 
     Task update(Task task, int projectId, int userId) throws NotFoundException;
+
+    void setEnabled(boolean enabled, int id,int projectId, int userId);
 }

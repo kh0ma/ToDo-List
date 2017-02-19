@@ -13,8 +13,8 @@ import java.time.LocalDateTime;
 @Table(name = "tasks")
 public class Task extends BaseEntity {
 
-    @Column(name = "status", nullable = false)
-    private boolean status;
+    @Column(name = "done", nullable = false)
+    private boolean done;
 
     @Column(name = "priority")
     @Convert(converter = PriorityConverter.class)
@@ -52,9 +52,9 @@ public class Task extends BaseEntity {
         this.priority = priority;
     }
 
-    public Task(Integer id, String name, boolean status, Priority priority, LocalDateTime deadLine, Project project, LocalDateTime created, User user) {
+    public Task(Integer id, String name, boolean done, Priority priority, LocalDateTime deadLine, Project project, LocalDateTime created, User user) {
         super(id, name);
-        this.status = status;
+        this.done = done;
         this.priority = priority;
         this.deadLine = deadLine;
         this.project = project;
@@ -68,20 +68,20 @@ public class Task extends BaseEntity {
     }
 
 
-    public Task(Integer id, String name, boolean status, Priority priority, LocalDateTime deadLine, Project project) {
+    public Task(Integer id, String name, boolean done, Priority priority, LocalDateTime deadLine, Project project) {
         super(id, name);
-        this.status = status;
+        this.done = done;
         this.priority = priority;
         this.deadLine = deadLine;
         this.project = project;
     }
 
-    public boolean isStatus() {
-        return status;
+    public boolean isDone() {
+        return done;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     public LocalDateTime getDeadLine() {
@@ -130,7 +130,7 @@ public class Task extends BaseEntity {
 
         Task task = (Task) o;
 
-        if (isStatus() != task.isStatus()) return false;
+        if (isDone() != task.isDone()) return false;
         if (getPriority() != task.getPriority()) return false;
         if (getDeadLine() != null ? !getDeadLine().equals(task.getDeadLine()) : task.getDeadLine() != null)
             return false;
@@ -142,7 +142,7 @@ public class Task extends BaseEntity {
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + (isStatus() ? 1 : 0);
+        result = 31 * result + (isDone() ? 1 : 0);
         result = 31 * result + (getPriority() != null ? getPriority().hashCode() : 0);
         result = 31 * result + (getDeadLine() != null ? getDeadLine().hashCode() : 0);
         result = 31 * result + getProject().getId().hashCode();
@@ -155,7 +155,7 @@ public class Task extends BaseEntity {
         return "Task{" +
                 "id=" + getId() +
                 ", name=" + getName() +
-                ", status=" + isStatus() +
+                ", done=" + isDone() +
                 ", priority=" + getPriority() +
                 ", deadLine=" + getDeadLine() +
                 ", created=" + getCreated() +

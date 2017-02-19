@@ -58,7 +58,7 @@ public class TaskTestData {
 
     public static Task getUpdated()
     {
-        return new Task(TASK1_ID,TASK1.getName()+" Updated",TASK1.isStatus(),TASK1.getPriority(),TASK1.getDeadLine(),TASK1.getProject(),TASK1.getCreated(), USER);
+        return new Task(TASK1_ID,TASK1.getName()+" Updated",TASK1.isDone(),TASK1.getPriority(),TASK1.getDeadLine(),TASK1.getProject(),TASK1.getCreated(), USER);
     }
 
 }

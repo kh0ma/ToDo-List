@@ -17,7 +17,7 @@ INSERT INTO projects (name, user_id, created) VALUES
   ('Home',      100000, '2017-01-20 18:00:00'),
   ('Tests',     100001, '2017-01-10 11:00:00');
 
-INSERT INTO tasks (name, status, priority, deadline, project_id, user_id,created) VALUES
+INSERT INTO tasks (name, done, priority, deadline, project_id, user_id,created) VALUES
   ('Revise the contract', FALSE, 2, '2017-01-22 12:00:00', 100002, 100000, '2017-01-15 12:05:00'),
   ('Sign the contract',   FALSE, 3, '2017-02-02 12:00:00', 100002, 100000, '2017-01-16 13:15:00'),
   ('Meet customer',        TRUE, 1, '2017-02-03 12:00:00', 100002, 100000, '2017-01-17 14:25:00'),

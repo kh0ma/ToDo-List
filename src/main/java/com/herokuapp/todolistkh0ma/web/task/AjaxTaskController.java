@@ -49,10 +49,17 @@ public class AjaxTaskController extends AbstractTaskController{
         return super.get(id,projectId);
     }
 
-    @PutMapping(value = "{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void update(@RequestBody Task task,
                        @PathVariable("projectId") int projectId,
                        @PathVariable("id") int id) {
         super.update(task, id, projectId);
+    }
+
+    @PostMapping(value = "/{id}/status")
+    public void setEnabled(@RequestParam("done") boolean done,
+                           @PathVariable("projectId") int projectId,
+                           @PathVariable("id") int id) {
+        super.setEnabled(done,id,projectId);
     }
 }

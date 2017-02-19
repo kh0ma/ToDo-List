@@ -45,4 +45,11 @@ public class TaskServiceImpl implements TaskService {
         Assert.notNull(task,"task must not be null");
         return ExceptionUtil.checkNotFoundWithId(repository.save(task,projectId, userId),task.getId());
     }
+
+    @Override
+    public void setEnabled(boolean enabled, int id, int projectId, int userId) {
+        Task task = get(id, projectId, userId);
+        task.setDone(enabled);
+        repository.save(task,projectId,userId);
+    }
 }

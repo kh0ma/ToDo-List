@@ -120,6 +120,11 @@
             width: 100%;
         }
 
+        .edit-task-checkbox {
+            height: initial;
+            width:  inherit;
+        }
+
     </style>
 </head>
 <body style="background: inherit">
@@ -175,7 +180,7 @@
 
 <!-- Modal Add Project -->
 <div class="modal fade" id="addProject" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -199,7 +204,7 @@
 
 <!-- Modal Edit Project -->
 <div class="modal fade" id="editProject" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -225,21 +230,33 @@
 
 <!-- Modal Edit Task -->
 <div class="modal fade" id="editTask" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Edit Task</h4>
             </div>
             <div class="modal-body">
-                <form class="form-inline">
+                <form class="form-horizontal">
+                    <input type="hidden" id="editTaskId">
+                    <input type="hidden" id="editTaskCreated">
+                    <input type="hidden" id="editTaskPriority">
+                    <input type="hidden" id="editTaskProjectId">
                     <div class="form-group">
-                        <label class="control-label" for="editTaskName" style="align-self: center;">Name:</label>
-                        <input type="text" class="form-control" id="editTaskName">
-                        <input type="hidden" id="editTaskId">
-                        <input type="hidden" id="editTaskCreated">
-                        <input type="hidden" id="editTaskPriority">
-                        <input type="hidden" id="editTaskProjectId">
+                        <label class="control-label col-sm-3" for="editTaskName" style="align-self: center;">Name:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="editTaskName">
+                        </div>
+                    </div>
+                    <div  class="form-group">
+                        <label class="control-label col-sm-3" for="editTaskIsDone" style="align-self: center;">Is Completed?</label>
+                        <div class="col-sm-9">
+                            <div class="checkbox pull-left ">
+                                <label>
+                                    <input type="checkbox" class="form-control edit-task-checkbox" id="editTaskIsDone">
+                                </label>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -283,8 +300,8 @@
 
     <table>
         <tr class='tasks-row' id='row_taskId_'>
-        <td class='table-checkBox' id='checkBox_taskId_'>
-            _checkBox_
+        <td class='table-checkBox'>
+            <input type="checkbox" id='checkBox_taskId_projectId_'>
         </td>
         <td class='table-name'>
             <div class='left-border'>
@@ -295,7 +312,7 @@
         </td>
         <td class='table-controls' id='controls_taskId_'>
             <a id='editTask_taskId_projectId_' onClick="editTask(this.id.split('_')[2], this.id.split('_')[1])" data-toggle='modal' data-target='#editTask'><span class='glyphicon glyphicon-pencil'></span></a>
-            <a id="deleteTask_taskId_projectId_" onClick="deleteTask(this.id.split('_')[2],this.id.split('_')[1])" type="button"><span class='glyphicon glyphicon-trash'></span></a>
+            <a id='deleteTask_taskId_projectId_' onClick="deleteTask(this.id.split('_')[2],this.id.split('_')[1])" type="button"><span class='glyphicon glyphicon-trash'></span></a>
         </td>
         </tr>
     </table>
@@ -318,6 +335,7 @@
                 $("#editTaskCreated").val(data.created);
                 $("#editTaskPriority").val(data.priority);
                 $("#editTaskProjectId").val(projectId);
+                $("#editTaskIsDone").prop("checked",data.done);
             }
         })
     }
@@ -342,6 +360,7 @@
         var created = $("#editTaskCreated").val();
         var priority = $("#editTaskPriority").val();
         var projectId = $("#editTaskProjectId").val();
+        var done = $("#editTaskIsDone").prop("checked");
         console.log(JSON.stringify({
             id:id,
             created: created,
@@ -358,11 +377,13 @@
                 id:id,
                 created: created,
                 name:name,
-                priority: priority
+                priority: priority,
+                done: done
             }),
             success: function() {
                 $("#nameDiv_"+id).empty();
                 $("#nameDiv_"+id).append(name);
+                $("#checkBox_"+id+"_"+projectId).prop("checked", done);
             }
         });
     }
@@ -411,12 +432,16 @@
         $("#projectRow_"+projectId).remove();
     }
 
-    function taskRender(id, projectId, name, where) {
+    function taskRender(id, projectId, name, done, where) {
         var row = tableRow.replace(/taskId_/g,id).replace(/projectId_/g,"_"+projectId);
         where?
                 $("#tbody_"+projectId).prepend(row):
                 $("#tbody_"+projectId). append(row);
         $("#nameDiv_"+id).append(name);
+        $("#checkBox_"+id+"_"+projectId).prop("checked", done);
+        $("#checkBox_"+id+"_"+projectId).change(function(){
+            setDone(this);
+        });
     }
 
     function addTask(addTaskButtonId) {
@@ -429,15 +454,15 @@
             data: JSON.stringify({
                 name:name}),
             success: function(data) {
-                taskRender(data.id,data.project.id,data.name,true);
+                taskRender(data.id,data.project.id,data.name, data.done,true);
                 $("#addTaskInput_"+projectId).val('');
             }
         });
     }
 
-    function updateTaskByData(data,projectId) {
+    function updateTaskByData(data,projectId,where) {
         $.each(data, function(key, val) {
-            taskRender(val.id,projectId,val.name);
+            taskRender(val.id,projectId,val.name, val.done, where);
         });
     }
 
@@ -494,10 +519,22 @@
         });
     }
 
+    function setDone(checkBox) {
+        projectId = checkBox.id.split('_')[2];
+        id = checkBox.id.split('_')[1];
+        done = $("#"+checkBox.id).prop("checked");
+        $.ajax({
+            type: "POST",
+            url: ajaxUrl + projectId + "/tasks/" + id + "/status",
+            data: {done: done}
+        });
+    }
+
     /* OnPageLoad */
     $(function () {
         getProjects();
     });
+
 </script>
 </body>
 
