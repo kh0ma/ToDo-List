@@ -17,6 +17,9 @@
 
     <script type="text/javascript" src="webjars/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="webjars/datetimepicker/2.4.7/jquery.datetimepicker.css">
+    <script type="text/javascript" src="webjars/datetimepicker/2.4.7/build/jquery.datetimepicker.full.min.js"></script>
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
@@ -193,7 +196,6 @@
             over-flow: hidden;
             width: 0px;
             height: 0px;
-            color: grey;
         }
 
         .mybutton {
@@ -204,6 +206,22 @@
 
         .mouseovertask {
             background-color: #feffbe;
+        }
+
+        .deadline {
+            display: inline;
+            min-width: 10px;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            align-self: stretch;
+            background-color: red;
+            border-radius: 10px;
         }
 
     </style>
@@ -312,6 +330,17 @@
                             <input type="text" class="form-control" id="editTaskName">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="editDeadLine" style="align-self: center;">DeadLine:</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="editDeadLine">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <div  class="form-group">
                         <label class="control-label col-sm-3" for="editTaskIsDone" style="align-self: center;">Is Completed?</label>
                         <div class="col-sm-9">
@@ -379,7 +408,14 @@
         <td class='table-name'>
             <div class='left-border'>
                 <div class='task-name-text' id='nameDiv_taskId_'>
-
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <label id="taskName_taskId_"></label>
+                        </div>
+                        <div class="col-sm-3">
+                            <span class="deadline hidden" id="deadline_taskId_"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </td>
@@ -414,6 +450,9 @@
                 $("#editTaskCreated").val(data.created);
                 $("#editTaskPriority").val(data.priority);
                 $("#editTaskProjectId").val(projectId);
+                if(data.deadLine!=null)
+                $("#editDeadLine").val(data.deadLine.replace("T"," ").substring(0,16));
+                else $("#editDeadLine").val("");
                 $("#editTaskIsDone").prop("checked",data.done);
             }
         })
@@ -440,6 +479,7 @@
         var priority = $("#editTaskPriority").val();
         var projectId = $("#editTaskProjectId").val();
         var done = $("#editTaskIsDone").prop("checked");
+        var deadline = $("#editDeadLine").val().replace(" ","T");
         console.log(JSON.stringify({
             id:id,
             created: created,
@@ -457,12 +497,20 @@
                 created: created,
                 name:name,
                 priority: priority,
-                done: done
+                done: done,
+                deadLine: deadline
             }),
             success: function() {
-                $("#nameDiv_"+id).empty();
-                $("#nameDiv_"+id).append(name);
+                $("#taskName_"+id).empty();
+                $("#taskName_"+id).append(name);
                 $("#checkBox_"+id+"_"+projectId).prop("checked", done);
+
+                if(deadline==null||deadline.length==0) $("#deadline_"+id).addClass("hidden");
+                else {
+                    $("#deadline_"+id).removeClass("hidden");
+                    $("#deadline_"+id).empty().append(deadline.replace("T"," ").substring(0,16));
+                }
+
             }
         });
     }
@@ -511,16 +559,20 @@
         $("#projectRow_"+projectId).remove();
     }
 
-    function taskRender(id, projectId, name, done, where) {
+    function taskRender(id, projectId, name, done, deadline, where) {
         var row = tableRow.replace(/taskId_/g,id).replace(/projectId_/g,"_"+projectId);
         where?
                 $("#tbody_"+projectId).prepend(row):
                 $("#tbody_"+projectId). append(row);
-        $("#nameDiv_"+id).append(name);
+        $("#taskName_"+id).prepend(name);
         $("#checkBox_"+id+"_"+projectId).prop("checked", done);
         $("#checkBox_"+id+"_"+projectId).change(function(){
             setDone(this);
         });
+        deadline==null?
+                $("#deadline_"+id).addClass("hidden"):
+                $("#deadline_"+id).removeClass("hidden");
+        if(deadline!=null) $("#deadline_"+id).empty().append(deadline.replace("T"," ").substring(0,16));
         $("#row_"+id).mouseenter(function(){
             $("#controlsDiv_"+id).removeClass("hidden");
             $("#row_"+id).addClass("mouseovertask");
@@ -540,7 +592,7 @@
             data: JSON.stringify({
                 name:name}),
             success: function(data) {
-                taskRender(data.id,data.project.id,data.name, data.done,true);
+                taskRender(data.id,data.project.id,data.name, data.done, null, true);
                 $("#addTaskInput_"+projectId).val('');
             }
         });
@@ -548,7 +600,7 @@
 
     function updateTaskByData(data,projectId,where) {
         $.each(data, function(key, val) {
-            taskRender(val.id,projectId,val.name, val.done, where);
+            taskRender(val.id,projectId,val.name, val.done, val.deadLine, where);
         });
     }
 
@@ -624,6 +676,11 @@
     /* OnPageLoad */
     $(function () {
         getProjects();
+    });
+
+
+    $('#editDeadLine').datetimepicker({
+        format:'Y-m-d H:i'
     });
 
 </script>
