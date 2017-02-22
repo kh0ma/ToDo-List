@@ -44,11 +44,22 @@
         }
 
         html {
-            background: url(/resources/images/bg.jpg) no-repeat center center fixed;
+            /*background: url(/resources/images/bg.jpg) no-repeat center center fixed;*/
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d3d1a8+0,d0cea8+4,d0cdac+4,cfccab+9,d0ccb1+12,ceccb5+13,cdcbb6+16,cbc9b4+19,c7c5b0+20,c8c6b1+20,c5c3ac+21,c1bfa8+25,bdbfa7+25,bcbea8+27,babfa9+33,babfab+34,bbbfb0+34,bbbfb0+34,b9bdae+35,bcc0b1+35,bbc2b2+36,bdc1b2+38,bec3af+38,bfc3ac+40,bfc3aa+41,c2c1a2+41,c2c1a2+42,c4c29b+42,c4c196+42,c4c196+43,c3c08d+43,c8bf88+44,c6c084+44,c9bb7c+45,c6bc77+45,cbba72+45,c9b86a+46,cdb764+46,c9b45b+46,cfb254+47,cbb24e+47,d0b04b+48,cead42+48,d2ac3f+48,d2ac3d+49,cfac36+49,d0a930+49,d0a62d+50,d0a729+50,d0a525+50,d4a322+51,d2a41d+51,cfa11a+52,d2a118+52,d2a118+53,d59f18+53,d29c15+53,d39b10+53,d2990e+56,cf940a+56,d19510+57,d3930f+58,d08f0d+58,d18d10+60,cf8a11+60,cf8910+62,cd870e+62,cb820f+67,cd7f10+68,cc7e12+70,ca7b12+73,c87910+73,c87912+74,c67710+75,c87914+76,c57514+76,c37312+78,c27115+80,bf6e13+82,bd6c11+82,bc6b10+83,bc6b10+90,b9680d+91,ba660c+93,b8640e+93,b86310+93,b35e0d+94,b35c0d+96,b25a10+96,af570d+96,b0580e+97,ac540a+97,ac540c+99,ab500a+100 */
+            background: #d3d1a8; /* Old browsers */
+            background: -moz-linear-gradient(top,  #d3d1a8 0%, #d0cea8 4%, #d0cdac 4%, #cfccab 9%, #d0ccb1 12%, #ceccb5 13%, #cdcbb6 16%, #cbc9b4 19%, #c7c5b0 20%, #c8c6b1 20%, #c5c3ac 21%, #c1bfa8 25%, #bdbfa7 25%, #bcbea8 27%, #babfa9 33%, #babfab 34%, #bbbfb0 34%, #bbbfb0 34%, #b9bdae 35%, #bcc0b1 35%, #bbc2b2 36%, #bdc1b2 38%, #bec3af 38%, #bfc3ac 40%, #bfc3aa 41%, #c2c1a2 41%, #c2c1a2 42%, #c4c29b 42%, #c4c196 42%, #c4c196 43%, #c3c08d 43%, #c8bf88 44%, #c6c084 44%, #c9bb7c 45%, #c6bc77 45%, #cbba72 45%, #c9b86a 46%, #cdb764 46%, #c9b45b 46%, #cfb254 47%, #cbb24e 47%, #d0b04b 48%, #cead42 48%, #d2ac3f 48%, #d2ac3d 49%, #cfac36 49%, #d0a930 49%, #d0a62d 50%, #d0a729 50%, #d0a525 50%, #d4a322 51%, #d2a41d 51%, #cfa11a 52%, #d2a118 52%, #d2a118 53%, #d59f18 53%, #d29c15 53%, #d39b10 53%, #d2990e 56%, #cf940a 56%, #d19510 57%, #d3930f 58%, #d08f0d 58%, #d18d10 60%, #cf8a11 60%, #cf8910 62%, #cd870e 62%, #cb820f 67%, #cd7f10 68%, #cc7e12 70%, #ca7b12 73%, #c87910 73%, #c87912 74%, #c67710 75%, #c87914 76%, #c57514 76%, #c37312 78%, #c27115 80%, #bf6e13 82%, #bd6c11 82%, #bc6b10 83%, #bc6b10 90%, #b9680d 91%, #ba660c 93%, #b8640e 93%, #b86310 93%, #b35e0d 94%, #b35c0d 96%, #b25a10 96%, #af570d 96%, #b0580e 97%, #ac540a 97%, #ac540c 99%, #ab500a 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  #d3d1a8 0%,#d0cea8 4%,#d0cdac 4%,#cfccab 9%,#d0ccb1 12%,#ceccb5 13%,#cdcbb6 16%,#cbc9b4 19%,#c7c5b0 20%,#c8c6b1 20%,#c5c3ac 21%,#c1bfa8 25%,#bdbfa7 25%,#bcbea8 27%,#babfa9 33%,#babfab 34%,#bbbfb0 34%,#bbbfb0 34%,#b9bdae 35%,#bcc0b1 35%,#bbc2b2 36%,#bdc1b2 38%,#bec3af 38%,#bfc3ac 40%,#bfc3aa 41%,#c2c1a2 41%,#c2c1a2 42%,#c4c29b 42%,#c4c196 42%,#c4c196 43%,#c3c08d 43%,#c8bf88 44%,#c6c084 44%,#c9bb7c 45%,#c6bc77 45%,#cbba72 45%,#c9b86a 46%,#cdb764 46%,#c9b45b 46%,#cfb254 47%,#cbb24e 47%,#d0b04b 48%,#cead42 48%,#d2ac3f 48%,#d2ac3d 49%,#cfac36 49%,#d0a930 49%,#d0a62d 50%,#d0a729 50%,#d0a525 50%,#d4a322 51%,#d2a41d 51%,#cfa11a 52%,#d2a118 52%,#d2a118 53%,#d59f18 53%,#d29c15 53%,#d39b10 53%,#d2990e 56%,#cf940a 56%,#d19510 57%,#d3930f 58%,#d08f0d 58%,#d18d10 60%,#cf8a11 60%,#cf8910 62%,#cd870e 62%,#cb820f 67%,#cd7f10 68%,#cc7e12 70%,#ca7b12 73%,#c87910 73%,#c87912 74%,#c67710 75%,#c87914 76%,#c57514 76%,#c37312 78%,#c27115 80%,#bf6e13 82%,#bd6c11 82%,#bc6b10 83%,#bc6b10 90%,#b9680d 91%,#ba660c 93%,#b8640e 93%,#b86310 93%,#b35e0d 94%,#b35c0d 96%,#b25a10 96%,#af570d 96%,#b0580e 97%,#ac540a 97%,#ac540c 99%,#ab500a 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  #d3d1a8 0%,#d0cea8 4%,#d0cdac 4%,#cfccab 9%,#d0ccb1 12%,#ceccb5 13%,#cdcbb6 16%,#cbc9b4 19%,#c7c5b0 20%,#c8c6b1 20%,#c5c3ac 21%,#c1bfa8 25%,#bdbfa7 25%,#bcbea8 27%,#babfa9 33%,#babfab 34%,#bbbfb0 34%,#bbbfb0 34%,#b9bdae 35%,#bcc0b1 35%,#bbc2b2 36%,#bdc1b2 38%,#bec3af 38%,#bfc3ac 40%,#bfc3aa 41%,#c2c1a2 41%,#c2c1a2 42%,#c4c29b 42%,#c4c196 42%,#c4c196 43%,#c3c08d 43%,#c8bf88 44%,#c6c084 44%,#c9bb7c 45%,#c6bc77 45%,#cbba72 45%,#c9b86a 46%,#cdb764 46%,#c9b45b 46%,#cfb254 47%,#cbb24e 47%,#d0b04b 48%,#cead42 48%,#d2ac3f 48%,#d2ac3d 49%,#cfac36 49%,#d0a930 49%,#d0a62d 50%,#d0a729 50%,#d0a525 50%,#d4a322 51%,#d2a41d 51%,#cfa11a 52%,#d2a118 52%,#d2a118 53%,#d59f18 53%,#d29c15 53%,#d39b10 53%,#d2990e 56%,#cf940a 56%,#d19510 57%,#d3930f 58%,#d08f0d 58%,#d18d10 60%,#cf8a11 60%,#cf8910 62%,#cd870e 62%,#cb820f 67%,#cd7f10 68%,#cc7e12 70%,#ca7b12 73%,#c87910 73%,#c87912 74%,#c67710 75%,#c87914 76%,#c57514 76%,#c37312 78%,#c27115 80%,#bf6e13 82%,#bd6c11 82%,#bc6b10 83%,#bc6b10 90%,#b9680d 91%,#ba660c 93%,#b8640e 93%,#b86310 93%,#b35e0d 94%,#b35c0d 96%,#b25a10 96%,#af570d 96%,#b0580e 97%,#ac540a 97%,#ac540c 99%,#ab500a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d1a8', endColorstr='#ab500a',GradientType=0 ); /* IE6-9 */
+
+
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
+
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
         .tasks-table
@@ -85,7 +96,7 @@
         }
         .table-controls
         {
-            width: 120px;
+            width: 80px;
             border-left: 1px solid #e7ebea;
             text-align: center;
             padding: 4px 0 0;
@@ -96,13 +107,6 @@
             border-spacing: 0;
         }
 
-        body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #333333;
-            background-color: #fff;
-        }
 
         .table-name .left-border {
             border-left: 1px solid #EFDADF;
@@ -125,10 +129,86 @@
             width:  inherit;
         }
 
+        .projects .project-header {
+            background-image: -moz-linear-gradient(37% 0% -90deg, #5183be 0%, #375d9e 99%);
+            background-image: -webkit-gradient(linear, 37% 0%, 37% 100%, color-stop(0, #5183be), color-stop(0.99, #375d9e));
+            background-image: -webkit-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+            background-image: -o-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+            background-image: -ms-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+            background-image: linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+            /*width: 700px;*/
+            height: 35px;
+            border: 1px solid #315589;
+            -moz-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+            -webkit-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+            box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+            position: relative;
+        }
+
+        .addprojectbutton {
+            background-image: -moz-linear-gradient(37% 0% -90deg, #5183be 0%, #375d9e 99%);
+            background-image: -webkit-gradient(linear, 37% 0%, 37% 100%, color-stop(0, #5183be), color-stop(0.99, #375d9e));
+            background-image: -webkit-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+            background-image: -o-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+            background-image: -ms-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+            background-image: linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+            border: 1px solid #315589;
+            -moz-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+            -webkit-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+            box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+            position: relative;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333333;
+            background: inherit;
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: block;
+            margin: 8px;
+        }
+
+        .hidden {
+            visibility: hidden;
+            over-flow: hidden;
+            width: 0px;
+            height: 0px;
+            color: grey;
+        }
+
+        .mybutton {
+            background: none;
+            border: none;
+            color: lightgrey;
+        }
+
+        .mouseovertask {
+            background-color: #feffbe;
+        }
+
     </style>
 </head>
-<body style="background: inherit">
-
+<body>
 <nav class="navbar navbar-transparen">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="myNavbar">
@@ -143,33 +223,13 @@
     <div class="row content" >
         <div class="col-sm-6 text-center col-sm-offset-3">
             <div style="height: 70pt">
-                <h1>TODO LIST</h1>
-
+                <h1>SIMPLE TODO LIST</h1>
+                <p>FOR RUBY GARAGE :)</p>
             </div>
-            <%--<c:forEach items="${projects}" var="project">
-                <jsp:useBean id="project" scope="page" type="com.herokuapp.todolistkh0ma.model.Project"/>
-                <div class="row">
-                    <div class="panel panel-group">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background: #3434a0; color: white">${project.name}</div>
-                            <c:forEach items="${project.tasks}" var="task">
-                                <jsp:useBean id="task" scope="page" type="com.herokuapp.todolistkh0ma.model.Task"/>
-                                <div class="panel-body">
-                                        ${task.name}
-                                </div>
-                            </c:forEach>
-                            <div class="panel-footer">Panel Footer</div>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>--%>
-
             <div id="ajax_project_load"></div>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addProject">
-                <span class='glyphicon glyphicon-plus-sign'></span>&nbspADD PROJECT
+            <button type="button" class="btn btn-info btn-lg addprojectbutton" data-toggle="modal" data-target="#addProject">
+                <span class='glyphicon glyphicon-plus-sign'></span>&nbspAdd TODO List
             </button>
-
-
         </div>
     </div>
 </div>
@@ -187,10 +247,12 @@
                 <h4 class="modal-title">Add Project</h4>
             </div>
             <div class="modal-body">
-                <form class="form-inline">
+                <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="control-label" for="addProjectName" style="align-self: center;">Name:</label>
-                        <input type="text" class="form-control" id="addProjectName">
+                        <label class="control-label col-sm-3" for="addProjectName" style="align-self: center;">Name:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="addProjectName">
+                        </div>
                     </div>
                 </form>
             </div>
@@ -211,10 +273,12 @@
                 <h4 class="modal-title">Edit Project</h4>
             </div>
             <div class="modal-body">
-                <form class="form-inline">
+                <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="control-label" for="editProjectName" style="align-self: center;">Name:</label>
-                        <input type="text" class="form-control" id="editProjectName">
+                        <label class="control-label col-sm-3" for="editProjectName" style="align-self: center;">Name:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="editProjectName">
+                        </div>
                         <input type="hidden" id="editProjectId">
                         <input type="hidden" id="editProjectCreated">
                     </div>
@@ -271,18 +335,27 @@
 <!-- Hidden div -->
 <div hidden>
     <div id="projectRow_projectId_" class="row">
-        <div class="panel panel-group">
-            <div class="panel panel-heading" style="background: #3434a0; color: white">
-                <span class='glyphicon glyphicon-tasks'></span>
-                <strong id='projectHeaderName_projectId_'>
+        <div class="panel panel-group projects">
+            <div class="panel panel-heading project-header" id="project_header_projectId_">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <span class='glyphicon glyphicon-tasks'></span>
+                    </div>
+                    <div class="col-sm-9 text-left" >
+                        <strong id='projectHeaderName_projectId_'>
 
-                </strong>
-                <a id='deleteProject_projectId_' onClick='deleteProject(this.id.split("_")[1])' type='button'>
-                    <span class='glyphicon glyphicon-trash'></span>
-                </a>
-                <a id='editProject_projectId_' onClick='editProject(this.id)' data-toggle='modal' data-target='#editProject'>
-                    <span class='glyphicon glyphicon-pencil'></span>
-                </a>
+                        </strong>
+                    </div>
+                    <div class="col-sm-2 hidden" id="project_header_controls_projectId_">
+                        <button id='editProject_projectId_' onClick='editProject(this.id)' data-toggle='modal' data-target='#editProject' class="mybutton">
+                            <i><span class='glyphicon glyphicon-pencil'></span></i>
+                        </button>
+                        &nbsp
+                        <button id='deleteProject_projectId_' onClick='deleteProject(this.id.split("_")[1])' type='button' class="mybutton">
+                            <span class='glyphicon glyphicon-trash'></span>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div id='addTaskPanel' class='input-group'>
                 <input type='text' class='form-control' placeholder='Start typing here to create a task...' id='addTaskInput_projectId_'>
@@ -311,8 +384,14 @@
             </div>
         </td>
         <td class='table-controls' id='controls_taskId_'>
-            <a id='editTask_taskId_projectId_' onClick="editTask(this.id.split('_')[2], this.id.split('_')[1])" data-toggle='modal' data-target='#editTask'><span class='glyphicon glyphicon-pencil'></span></a>
-            <a id='deleteTask_taskId_projectId_' onClick="deleteTask(this.id.split('_')[2],this.id.split('_')[1])" type="button"><span class='glyphicon glyphicon-trash'></span></a>
+            <div class="row hidden" id="controlsDiv_taskId_">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <button id='editTask_taskId_projectId_' class="mybutton" onClick="editTask(this.id.split('_')[2], this.id.split('_')[1])" data-toggle='modal' data-target='#editTask'><span class='glyphicon glyphicon-pencil'></span></button>
+                </div>
+                <div class="col-sm-5 col-sm-pull-1">
+                    <button id='deleteTask_taskId_projectId_' class="mybutton" onClick="deleteTask(this.id.split('_')[2],this.id.split('_')[1])" type="button"><span class='glyphicon glyphicon-trash'></span></button>
+                </div>
+            </div>
         </td>
         </tr>
     </table>
@@ -442,6 +521,13 @@
         $("#checkBox_"+id+"_"+projectId).change(function(){
             setDone(this);
         });
+        $("#row_"+id).mouseenter(function(){
+            $("#controlsDiv_"+id).removeClass("hidden");
+            $("#row_"+id).addClass("mouseovertask");
+        }).mouseleave(function(){
+            $("#controlsDiv_"+id).addClass("hidden");
+            $("#row_"+id).removeClass("mouseovertask");
+        });
     }
 
     function addTask(addTaskButtonId) {
@@ -483,6 +569,11 @@
                 $("#ajax_project_load").prepend(element):
                 $("#ajax_project_load").append (element);
         $("#projectHeaderName_"+id).append(name);
+        $("#project_header_"+id).mouseenter(function(){
+            $("#project_header_controls_"+id).removeClass("hidden");
+        }).mouseleave(function(){
+            $("#project_header_controls_"+id).addClass("hidden");
+        });
     }
 
     function addProject() {
@@ -537,5 +628,4 @@
 
 </script>
 </body>
-
 </html>
