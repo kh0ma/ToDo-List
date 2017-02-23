@@ -28,6 +28,7 @@
     <logger name="org.hibernate.SQL" level="debug"/>
     <logger name="org.hibernate.type" level="TRACE" />
 
+    <logger name="org.springframework.security" level="debug"/>
 
     <root level="info">
         <appender-ref ref="file"/>

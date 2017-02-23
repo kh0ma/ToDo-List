@@ -23,6 +23,7 @@
         <!-- Spring -->
         <spring.version>4.3.2.RELEASE</spring.version>
         <spring-data-jpa.version>1.10.4.RELEASE</spring-data-jpa.version>
+        <spring-security.version>4.1.3.RELEASE</spring-security.version>
 
         <tomcat.version>8.0.33</tomcat.version>
         <jackson-json.version>2.8.4</jackson-json.version>
@@ -205,6 +206,18 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson-json.version}</version>
+        </dependency>
+
+        <!--security-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring-security.version}</version>
         </dependency>
 
         <!-- Webjars (static dependencies distributed as JAR files) -->

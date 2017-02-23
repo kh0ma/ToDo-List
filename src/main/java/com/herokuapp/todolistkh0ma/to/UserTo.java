@@ -1,15 +1,26 @@
 package com.herokuapp.todolistkh0ma.to;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
+
 /**
  * Created by kh0ma on 26.01.17.
  */
-public class UserTo {
+public class UserTo implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private Integer id;
 
+    @NotEmpty
     private String name;
 
+    @Email
+    @NotEmpty
     private String email;
 
+    @Size(min = 5, max = 64, message = " must between 5 and 64 characters")
     private String password;
 
     public UserTo() {

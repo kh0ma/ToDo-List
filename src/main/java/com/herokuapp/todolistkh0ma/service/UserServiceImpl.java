@@ -1,5 +1,6 @@
 package com.herokuapp.todolistkh0ma.service;
 
+import com.herokuapp.todolistkh0ma.AuthorizedUser;
 import com.herokuapp.todolistkh0ma.model.User;
 import com.herokuapp.todolistkh0ma.repository.UserRepository;
 import com.herokuapp.todolistkh0ma.to.UserTo;
@@ -9,6 +10,8 @@ import com.herokuapp.todolistkh0ma.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -18,8 +21,8 @@ import java.util.List;
 /**
  * Created by kh0ma on 23.01.17.
  */
-@Service
-public class UserServiceImpl implements UserService {
+@Service("userService")
+public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Autowired
     private UserRepository repository;
@@ -81,5 +84,14 @@ public class UserServiceImpl implements UserService {
     public void update(UserTo userTo) {
         User user = get(userTo.getId());
         repository.save(UserUtil.updateFromTo(user, userTo));
+    }
+
+    @Override
+    public AuthorizedUser loadUserByUsername(String email) throws UsernameNotFoundException {
+        User u = repository.getByEmail(email);
+        if (u == null) {
+            throw new UsernameNotFoundException("User " + email + " is not found");
+        }
+        return new AuthorizedUser(u);
     }
 }
