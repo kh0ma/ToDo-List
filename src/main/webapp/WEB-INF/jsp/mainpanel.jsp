@@ -25,9 +25,9 @@
     </div>
 </nav>
 
-<div class="container-fluid text-center container-transparen">
-    <div class="row content" >
-        <div class="col-sm-6 text-center col-sm-offset-3">
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 text-center">
             <div style="height: 70pt">
                 <h1>SIMPLE TODO LIST</h1>
                 <p>FOR RUBY GARAGE :)</p>
@@ -53,8 +53,8 @@
             <div class="modal-body">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="control-label col-sm-3" for="addProjectName" style="align-self: center;">Name:</label>
-                        <div class="col-sm-9">
+                        <label class="control-label col-md-3 col-sm-3" for="addProjectName" style="align-self: center;">Name:</label>
+                        <div class="col-md-9 col-sm-9">
                             <input type="text" class="form-control" id="addProjectName">
                         </div>
                     </div>
@@ -79,8 +79,8 @@
             <div class="modal-body">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="control-label col-sm-3" for="editProjectName" style="align-self: center;">Name:</label>
-                        <div class="col-sm-9">
+                        <label class="control-label col-md-3 col-sm-3" for="editProjectName" style="align-self: center;">Name:</label>
+                        <div class="col-md-9 col-sm-9">
                             <input type="text" class="form-control" id="editProjectName">
                         </div>
                         <input type="hidden" id="editProjectId">
@@ -111,14 +111,16 @@
                     <input type="hidden" id="editTaskPriority">
                     <input type="hidden" id="editTaskProjectId">
                     <div class="form-group">
-                        <label class="control-label col-sm-3" for="editTaskName" style="align-self: center;">Name:</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="editTaskName">
+                        <div class="row">
+                            <label class="control-label col-md-3 col-sm-3" for="editTaskName" style="align-self: center;">Name:</label>
+                            <div class="col-md-9 col-sm-9">
+                                <input type="text" class="form-control" id="editTaskName">
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3" for="editDeadLine" style="align-self: center;">DeadLine:</label>
-                        <div class="col-sm-9">
+                        <label class="control-label col-md-3 col-sm-3" for="editDeadLine" style="align-self: center;">DeadLine:</label>
+                        <div class="col-md-9 col-sm-9">
                             <div class="input-group">
                                 <input type="text" class="form-control" id="editDeadLine">
                                 <span class="input-group-addon">
@@ -128,8 +130,8 @@
                         </div>
                     </div>
                     <div  class="form-group">
-                        <label class="control-label col-sm-3" for="editTaskIsDone" style="align-self: center;">Is Completed?</label>
-                        <div class="col-sm-9">
+                        <label class="control-label col-md-3 col-sm-3" for="editTaskIsDone" style="align-self: center;">Is Completed?</label>
+                        <div class="col-md-9 col-sm-9">
                             <div class="checkbox pull-left ">
                                 <label>
                                     <input type="checkbox" class="form-control edit-task-checkbox" id="editTaskIsDone">
@@ -153,15 +155,15 @@
         <div class="panel panel-group projects">
             <div class="panel panel-heading project-header" id="project_header_projectId_">
                 <div class="row">
-                    <div class="col-sm-1">
+                    <div class="col-md-1 col-sm-1">
                         <span class='glyphicon glyphicon-tasks'></span>
                     </div>
-                    <div class="col-sm-9 text-left" >
+                    <div class="col-md-9 col-sm-9 text-left" >
                         <strong id='projectHeaderName_projectId_'>
 
                         </strong>
                     </div>
-                    <div class="col-sm-2 hidden" id="project_header_controls_projectId_">
+                    <div class="col-md-2 col-sm-2 hidden" id="project_header_controls_projectId_">
                         <button id='editProject_projectId_' onClick='editProject(this.id)' data-toggle='modal' data-target='#editProject' class="mybutton">
                             <i><span class='glyphicon glyphicon-pencil'></span></i>
                         </button>
@@ -195,10 +197,10 @@
             <div class='left-border'>
                 <div class='task-name-text' id='nameDiv_taskId_'>
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-md-9 col-sm-9">
                             <label id="taskName_taskId_"></label>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-md-3 col-sm-3">
                             <span class="deadline hidden" id="deadline_taskId_"></span>
                         </div>
                     </div>
@@ -207,10 +209,10 @@
         </td>
         <td class='table-controls' id='controls_taskId_'>
             <div class="row hidden" id="controlsDiv_taskId_">
-                <div class="col-sm-5 col-sm-offset-1">
+                <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
                     <button id='editTask_taskId_projectId_' class="mybutton" onClick="editTask(this.id.split('_')[2], this.id.split('_')[1])" data-toggle='modal' data-target='#editTask'><span class='glyphicon glyphicon-pencil'></span></button>
                 </div>
-                <div class="col-sm-5 col-sm-pull-1">
+                <div class="col-md-5 col-md-pull-1 col-sm-5 col-sm-pull-1">
                     <button id='deleteTask_taskId_projectId_' class="mybutton" onClick="deleteTask(this.id.split('_')[2],this.id.split('_')[1])" type="button"><span class='glyphicon glyphicon-trash'></span></button>
                 </div>
             </div>

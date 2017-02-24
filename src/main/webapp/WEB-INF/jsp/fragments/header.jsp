@@ -7,5 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
     <title>ToDo List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="webjars/bootstrap/3.3.7-1/css/bootstrap.css">
     <link rel="stylesheet" href="/resources/css/todolist.css">

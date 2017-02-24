@@ -238,12 +238,11 @@ function setDone(checkBox) {
     });
 }
 
+$('#editDeadLine').datetimepicker({
+    format:'Y-m-d H:i'
+});
+
 /* OnPageLoad */
 $(function () {
     getProjects();
-});
-
-
-$('#editDeadLine').datetimepicker({
-    format:'Y-m-d H:i'
 });

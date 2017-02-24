@@ -16,9 +16,11 @@
         <csrf disabled="true"/>
     </http>
 
+    <http pattern="/favicon.ico" security="none" />
 
     <http>
         <intercept-url pattern="/login" access="permitAll"/>
+        <intercept-url pattern="/ajax/profile" access="permitAll"/>
 
         <intercept-url pattern="/**/admin/**" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/**" access="isAuthenticated()"/>
