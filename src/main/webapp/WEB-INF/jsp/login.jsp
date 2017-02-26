@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <html>
 <head>
@@ -20,8 +21,8 @@
                 <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                     <div class="panel panel-info" >
                         <div class="panel-heading">
-                            <div class="panel-title">Sign In</div>
-                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signuplink" <%--onClick="$('#loginbox').hide(); $('#signupbox').show()"--%>>Sign Up</a></div>
+                            <div class="panel-title"><fmt:message key="login.signin"/></div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signuplink"><fmt:message key="login.signup"/></a></div>
                         </div>
 
                         <div style="padding-top:30px" class="panel-body" >
@@ -32,18 +33,18 @@
 
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                    <input id="login-email" type="text" class="form-control" name="username" value="" placeholder="Email">
+                                    <input id="login-email" type="text" class="form-control" name="username" value="" placeholder=<fmt:message key="login.email"/> >
                                 </div>
 
                                 <div style="margin-bottom: 25px" class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                    <input id="login-password" type="password" class="form-control" name="password" placeholder="Password">
+                                    <input id="login-password" type="password" class="form-control" name="password" placeholder=<fmt:message key="login.password"/>>
                                 </div>
                                 <div style="margin-top:10px" class="form-group">
                                     <!-- Button -->
 
                                     <div class="controls col-md-3 col-md-offset-4 col-sm-3 col-sm-offset-4">
-                                        <button id="btn-login" class="btn btn-success" type="submit">Login </button>
+                                        <button id="btn-login" class="btn btn-success" type="submit"><fmt:message key="login.loginbutton"/></button>
                                     </div>
                                 </div>
                             </form>
@@ -56,42 +57,42 @@
         <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <div class="panel-title">Sign Up</div>
-                    <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" <%--onclick="$('#signupbox').hide(); $('#loginbox').show()"--%>>Sign In</a></div>
+                    <div class="panel-title"><fmt:message key="login.signup"/></div>
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink"><fmt:message key="login.signin"/></a></div>
                 </div>
                 <div class="panel-body" >
                     <form id="signupform" class="form-horizontal" role="form" method="post">
 
-                        <div id="signupalert" style="display:none" class="alert alert-danger">
+                        <%--<div id="signupalert" style="display:none" class="alert alert-danger">
                             <p>Error:</p>
                             <span></span>
-                        </div>
+                        </div>--%>
 
 
 
                         <div class="form-group">
                             <label for="email" class="col-md-3 control-label">Email: </label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email Address">
+                                <input type="email" class="form-control" id="email" name="email" placeholder=<fmt:message key="login.emailplaceholder"/>>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="name" class="col-md-3 control-label">Name: </label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                <input type="text" class="form-control" id="name" name="name" placeholder=<fmt:message key="login.name"/>>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password" class="col-md-3 control-label">Password: </label>
                             <div class="col-md-9">
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder=<fmt:message key="login.password"/>>
                             </div>
                         </div>
                         <div class="form-group">
                             <!-- Button -->
                             <div class="controls col-md-3 col-md-offset-5 col-sm-3 col-sm-offset-5">
-                                <button id="btn-singup" class="btn btn-info" type="submit">Sign Up</button>
+                                <button id="btn-singup" class="btn btn-info" type="submit"><fmt:message key="login.signup"/></button>
                             </div>
                         </div>
                     </form>
@@ -112,7 +113,7 @@
                 </c:if>
                 <c:if test="${not empty message}">
                     <div class="message">
-                        <fmt:message key="${message}"/>
+                        <spring:message code="${message}"/>
                     </div>
                 </c:if>
 
