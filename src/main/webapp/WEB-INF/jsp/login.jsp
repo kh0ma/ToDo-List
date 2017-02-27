@@ -84,9 +84,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="passwordsignup" class="col-md-3 control-label"><fmt:message key="login.password"/> </label>
+                            <label for="password" class="col-md-3 control-label"><fmt:message key="login.password"/> </label>
                             <div class="col-md-9">
-                                <input type="password" class="form-control" id="passwordsignup" name="passwordsignup" required>
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -161,20 +161,20 @@
                         // by the built-in "email" rule
                         email: true
                     },
-                    passwordsignup: {
+                    password: {
                         required: true,
                         minlength: 5
                     },
                     confirmpassword: {
                         required: true,
-                        equalTo: "#passwordsignup"
+                        equalTo: "#password"
                     }
 
                 },
                 // Specify validation error messages
                 messages: {
                     name: "Please enter your name",
-                    passwordsignup: {
+                    password: {
                         required: "Please provide a password",
                         minlength: "Your password must be at least 5 characters long"
                     },

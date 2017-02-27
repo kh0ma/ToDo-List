@@ -49,7 +49,7 @@ public class RootController extends AbstractUserController {
             try {
                 super.create(UserUtil.createNewFromTo(userTo));
                 status.setComplete();
-                return "redirect:login?message='successful'";
+                return "redirect:login?message=common.successful";
             } catch (DataIntegrityViolationException ex) {
                 result.rejectValue("email", "duplicate email");
             }
