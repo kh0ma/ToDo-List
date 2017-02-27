@@ -26,8 +26,8 @@
           p:driverClassName="org.postgresql.Driver"
           p:url="${database.url}"
           p:username="${database.username}"
-          p:password="${database.password}"/>
-
+          p:password="${TODOLIST_DB_PASS}"/>
+          <!--p:password="${database.password}"-->
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
           p:dataSource-ref="dataSource"
