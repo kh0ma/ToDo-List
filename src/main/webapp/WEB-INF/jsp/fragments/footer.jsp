@@ -10,4 +10,5 @@
     <p style="color: white">© kh0ma 2017</p>
     <script type="text/javascript" src="webjars/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="webjars/jquery-validation/1.16.0/jquery.validate.js"></script>
 </footer>
