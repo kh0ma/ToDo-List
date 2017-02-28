@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS projects;
+
+CREATE TABLE projects
+(
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR NOT NULL
+);
+
+CREATE TABLE tasks
+(
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR NOT NULL,
+  status VARCHAR,
+  project_id INT NOT NULL,
+  FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE CASCADE
+);
+
+
+
