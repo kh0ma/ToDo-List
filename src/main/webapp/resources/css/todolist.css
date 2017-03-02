@@ -24,15 +24,7 @@ footer {
 }
 
 html {
-    /*background: url(/resources/images/bg.jpg) no-repeat center center fixed;*/
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d3d1a8+0,d0cea8+4,d0cdac+4,cfccab+9,d0ccb1+12,ceccb5+13,cdcbb6+16,cbc9b4+19,c7c5b0+20,c8c6b1+20,c5c3ac+21,c1bfa8+25,bdbfa7+25,bcbea8+27,babfa9+33,babfab+34,bbbfb0+34,bbbfb0+34,b9bdae+35,bcc0b1+35,bbc2b2+36,bdc1b2+38,bec3af+38,bfc3ac+40,bfc3aa+41,c2c1a2+41,c2c1a2+42,c4c29b+42,c4c196+42,c4c196+43,c3c08d+43,c8bf88+44,c6c084+44,c9bb7c+45,c6bc77+45,cbba72+45,c9b86a+46,cdb764+46,c9b45b+46,cfb254+47,cbb24e+47,d0b04b+48,cead42+48,d2ac3f+48,d2ac3d+49,cfac36+49,d0a930+49,d0a62d+50,d0a729+50,d0a525+50,d4a322+51,d2a41d+51,cfa11a+52,d2a118+52,d2a118+53,d59f18+53,d29c15+53,d39b10+53,d2990e+56,cf940a+56,d19510+57,d3930f+58,d08f0d+58,d18d10+60,cf8a11+60,cf8910+62,cd870e+62,cb820f+67,cd7f10+68,cc7e12+70,ca7b12+73,c87910+73,c87912+74,c67710+75,c87914+76,c57514+76,c37312+78,c27115+80,bf6e13+82,bd6c11+82,bc6b10+83,bc6b10+90,b9680d+91,ba660c+93,b8640e+93,b86310+93,b35e0d+94,b35c0d+96,b25a10+96,af570d+96,b0580e+97,ac540a+97,ac540c+99,ab500a+100 */
-    background: #d3d1a8; /* Old browsers */
-    background: -moz-linear-gradient(top,  #d3d1a8 0%, #d0cea8 4%, #d0cdac 4%, #cfccab 9%, #d0ccb1 12%, #ceccb5 13%, #cdcbb6 16%, #cbc9b4 19%, #c7c5b0 20%, #c8c6b1 20%, #c5c3ac 21%, #c1bfa8 25%, #bdbfa7 25%, #bcbea8 27%, #babfa9 33%, #babfab 34%, #bbbfb0 34%, #bbbfb0 34%, #b9bdae 35%, #bcc0b1 35%, #bbc2b2 36%, #bdc1b2 38%, #bec3af 38%, #bfc3ac 40%, #bfc3aa 41%, #c2c1a2 41%, #c2c1a2 42%, #c4c29b 42%, #c4c196 42%, #c4c196 43%, #c3c08d 43%, #c8bf88 44%, #c6c084 44%, #c9bb7c 45%, #c6bc77 45%, #cbba72 45%, #c9b86a 46%, #cdb764 46%, #c9b45b 46%, #cfb254 47%, #cbb24e 47%, #d0b04b 48%, #cead42 48%, #d2ac3f 48%, #d2ac3d 49%, #cfac36 49%, #d0a930 49%, #d0a62d 50%, #d0a729 50%, #d0a525 50%, #d4a322 51%, #d2a41d 51%, #cfa11a 52%, #d2a118 52%, #d2a118 53%, #d59f18 53%, #d29c15 53%, #d39b10 53%, #d2990e 56%, #cf940a 56%, #d19510 57%, #d3930f 58%, #d08f0d 58%, #d18d10 60%, #cf8a11 60%, #cf8910 62%, #cd870e 62%, #cb820f 67%, #cd7f10 68%, #cc7e12 70%, #ca7b12 73%, #c87910 73%, #c87912 74%, #c67710 75%, #c87914 76%, #c57514 76%, #c37312 78%, #c27115 80%, #bf6e13 82%, #bd6c11 82%, #bc6b10 83%, #bc6b10 90%, #b9680d 91%, #ba660c 93%, #b8640e 93%, #b86310 93%, #b35e0d 94%, #b35c0d 96%, #b25a10 96%, #af570d 96%, #b0580e 97%, #ac540a 97%, #ac540c 99%, #ab500a 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #d3d1a8 0%,#d0cea8 4%,#d0cdac 4%,#cfccab 9%,#d0ccb1 12%,#ceccb5 13%,#cdcbb6 16%,#cbc9b4 19%,#c7c5b0 20%,#c8c6b1 20%,#c5c3ac 21%,#c1bfa8 25%,#bdbfa7 25%,#bcbea8 27%,#babfa9 33%,#babfab 34%,#bbbfb0 34%,#bbbfb0 34%,#b9bdae 35%,#bcc0b1 35%,#bbc2b2 36%,#bdc1b2 38%,#bec3af 38%,#bfc3ac 40%,#bfc3aa 41%,#c2c1a2 41%,#c2c1a2 42%,#c4c29b 42%,#c4c196 42%,#c4c196 43%,#c3c08d 43%,#c8bf88 44%,#c6c084 44%,#c9bb7c 45%,#c6bc77 45%,#cbba72 45%,#c9b86a 46%,#cdb764 46%,#c9b45b 46%,#cfb254 47%,#cbb24e 47%,#d0b04b 48%,#cead42 48%,#d2ac3f 48%,#d2ac3d 49%,#cfac36 49%,#d0a930 49%,#d0a62d 50%,#d0a729 50%,#d0a525 50%,#d4a322 51%,#d2a41d 51%,#cfa11a 52%,#d2a118 52%,#d2a118 53%,#d59f18 53%,#d29c15 53%,#d39b10 53%,#d2990e 56%,#cf940a 56%,#d19510 57%,#d3930f 58%,#d08f0d 58%,#d18d10 60%,#cf8a11 60%,#cf8910 62%,#cd870e 62%,#cb820f 67%,#cd7f10 68%,#cc7e12 70%,#ca7b12 73%,#c87910 73%,#c87912 74%,#c67710 75%,#c87914 76%,#c57514 76%,#c37312 78%,#c27115 80%,#bf6e13 82%,#bd6c11 82%,#bc6b10 83%,#bc6b10 90%,#b9680d 91%,#ba660c 93%,#b8640e 93%,#b86310 93%,#b35e0d 94%,#b35c0d 96%,#b25a10 96%,#af570d 96%,#b0580e 97%,#ac540a 97%,#ac540c 99%,#ab500a 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #d3d1a8 0%,#d0cea8 4%,#d0cdac 4%,#cfccab 9%,#d0ccb1 12%,#ceccb5 13%,#cdcbb6 16%,#cbc9b4 19%,#c7c5b0 20%,#c8c6b1 20%,#c5c3ac 21%,#c1bfa8 25%,#bdbfa7 25%,#bcbea8 27%,#babfa9 33%,#babfab 34%,#bbbfb0 34%,#bbbfb0 34%,#b9bdae 35%,#bcc0b1 35%,#bbc2b2 36%,#bdc1b2 38%,#bec3af 38%,#bfc3ac 40%,#bfc3aa 41%,#c2c1a2 41%,#c2c1a2 42%,#c4c29b 42%,#c4c196 42%,#c4c196 43%,#c3c08d 43%,#c8bf88 44%,#c6c084 44%,#c9bb7c 45%,#c6bc77 45%,#cbba72 45%,#c9b86a 46%,#cdb764 46%,#c9b45b 46%,#cfb254 47%,#cbb24e 47%,#d0b04b 48%,#cead42 48%,#d2ac3f 48%,#d2ac3d 49%,#cfac36 49%,#d0a930 49%,#d0a62d 50%,#d0a729 50%,#d0a525 50%,#d4a322 51%,#d2a41d 51%,#cfa11a 52%,#d2a118 52%,#d2a118 53%,#d59f18 53%,#d29c15 53%,#d39b10 53%,#d2990e 56%,#cf940a 56%,#d19510 57%,#d3930f 58%,#d08f0d 58%,#d18d10 60%,#cf8a11 60%,#cf8910 62%,#cd870e 62%,#cb820f 67%,#cd7f10 68%,#cc7e12 70%,#ca7b12 73%,#c87910 73%,#c87912 74%,#c67710 75%,#c87914 76%,#c57514 76%,#c37312 78%,#c27115 80%,#bf6e13 82%,#bd6c11 82%,#bc6b10 83%,#bc6b10 90%,#b9680d 91%,#ba660c 93%,#b8640e 93%,#b86310 93%,#b35e0d 94%,#b35c0d 96%,#b25a10 96%,#af570d 96%,#b0580e 97%,#ac540a 97%,#ac540c 99%,#ab500a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d1a8', endColorstr='#ab500a',GradientType=0 ); /* IE6-9 */
-
-
+    background: url(/resources/images/bg.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -58,7 +50,7 @@ html {
 .table-checkBox
 {
     border-right: 1px solid #EFDADF;
-    width: 40px;
+    width: 45px;
     text-align: center;
     position: relative;
 }
@@ -76,7 +68,7 @@ html {
 }
 .table-controls
 {
-    width: 80px;
+    width: 120px;
     border-left: 1px solid #e7ebea;
     text-align: center;
     padding: 4px 0 0;
@@ -90,7 +82,7 @@ table {
 
 .table-name .left-border {
     border-left: 1px solid #EFDADF;
-    margin: 0 0 0 2px;
+    margin: 0 0 0 4px;
     padding: 4px;
     height: 48px;
 }
@@ -199,6 +191,7 @@ body {
     align-self: stretch;
     background-color: red;
     border-radius: 10px;
+    float: right;
 }
 
 .error, .message {
@@ -218,4 +211,585 @@ body {
     color: #2f9635;
     background-color: #c6fbc2;
     border: 1px solid #9feba6;
+}
+
+
+.projects {
+    margin: 0 auto;
+    margin-left: 25px;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333333;
+    background-color: #fff;
+}
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: transparent;
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+.projects .project-header {
+    background-image: -moz-linear-gradient(37% 0% -90deg, #5183be 0%, #375d9e 99%);
+    background-image: -webkit-gradient(linear, 37% 0%, 37% 100%, color-stop(0, #5183be), color-stop(0.99, #375d9e));
+    background-image: -webkit-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+    background-image: -o-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+    background-image: -ms-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+    background-image: linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+    width: 700px;
+    height: 50px;
+    border: 1px solid #315589;
+    -moz-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+    -webkit-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+    position: relative;
+}
+
+.projects .project-header .project-field {
+    background: transparent url(/resources/icons/project.png) no-repeat 15px 50%;
+    padding: 0 80px 0 45px;
+}
+
+.projects .project-header h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 38px;
+    text-shadow: 0px 1px 0px #28405D;
+    overflow: hidden;
+    width: 100%;
+    height: 40px;
+    margin: 5px 0;
+    padding: 1px 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: left;
+}
+
+h2, .h2 {
+    font-size: 30px;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+h2, .h2 {
+    font-size: 30px;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+.projects .project-header .control {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.projects .project-header .control ul {
+    margin: 0 0 0 -20px;
+}
+
+.control ul {
+    margin: 0 12px 0 -12px;
+    padding: 0;
+    word-spacing: -.3em;
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+ul, ol {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.projects .project-header .control li {
+    border-left: 1px solid #5284BF;
+    margin: 0 0 0 10px;
+    padding: 0 0 0 10px;
+}
+
+.control li {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    padding: 0 0 0 10px;
+    vertical-align: text-bottom;
+    word-spacing: normal;
+    border-left: 1px solid #ccc;
+}
+
+.projects .project-header .control .edit {
+    background: url(/resources/icons/edit.png) no-repeat 50% 50%;
+}
+
+.control a {
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    cursor: hand;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+a {
+    background-color: transparent;
+}
+
+.projects .project-header .control .delete {
+    background: url(/resources/icons/delete.png) no-repeat 50% 50%;
+}
+
+.new_task {
+    display: block;
+    margin-top: 0em;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+input {
+    line-height: normal;
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.projects .create-task-header {
+    background-image: -moz-linear-gradient(50% 0% -90deg, #e1e1e1 0%, #ccc 100%);
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0, #e1e1e1), color-stop(1, #ccc));
+    background-image: -webkit-linear-gradient(-90deg, #e1e1e1 0%, #ccc 100%);
+    background-image: -o-linear-gradient(-90deg, #e1e1e1 0%, #ccc 100%);
+    background-image: -ms-linear-gradient(-90deg, #e1e1e1 0%, #ccc 100%);
+    background-image: linear-gradient(-90deg, #e1e1e1 0%, #ccc 100%);
+    border: 1px solid #abafa3;
+    width: 700px;
+    height: 50px;
+    padding: 8px 15px 0;
+}
+
+.projects .create-task-header .create-task-in {
+    background: url(/resources/icons/add_task.png) no-repeat 0 50%;
+    padding: 0 0 0 34px;
+}
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+.projects .create-task-header .create-task-in input {
+    float: none;
+    background-color: white;
+    width: 533px;
+    height: 30px;
+    -moz-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.75);
+}
+
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child>.btn, .authform .input-group-btn:first-child>.button, .input-group-btn:first-child>.btn-group>.btn, .authform .input-group-btn:first-child>.btn-group>.button, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle), .authform .input-group-btn:last-child>.button:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child>.btn-group:not(:last-child)>.btn, .authform .input-group-btn:last-child>.btn-group:not(:last-child)>.button {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group>.btn, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child>.btn-group:not(:last-child)>.btn {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.input-group-addon, .input-group-btn, .input-group .form-control {
+    display: table-cell;
+}
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
+.input-group-addon, .input-group-btn, .input-group .form-control {
+    display: table-cell;
+}
+.input-group .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+input {
+    line-height: normal;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+input {
+    line-height: normal;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.projects .create-task-header .create-task-in span.add-task {
+    padding-top: 1px;
+}
+.input-group-btn {
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+}
+.input-group-addon, .input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.input-group-addon, .input-group-btn, .input-group .form-control {
+    display: table-cell;
+}
+.input-group-btn {
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+}
+.input-group-addon, .input-group-btn {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.input-group-addon, .input-group-btn, .input-group .form-control {
+    display: table-cell;
+}
+
+.projects .create-task-header .create-task-in button.add-task {
+    padding-top: 4px;
+    background-image: -moz-linear-gradient(#96cdb0 0%, #4d8464 97%);
+    background-image: -webkit-gradient(linear, color-stop(0, #96cdb0), color-stop(0.97, #4d8464));
+    background-image: -webkit-linear-gradient(#96cdb0 0%, #4d8464 97%);
+    background-image: -o-linear-gradient(#96cdb0 0%, #4d8464 97%);
+    background-image: -ms-linear-gradient(#96cdb0 0%, #4d8464 97%);
+    background-image: linear-gradient(#96cdb0 0%, #4d8464 97%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    outline: none;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    border: 1px solid #447557;
+    height: 29px;
+    width: 108px;
+    text-shadow: 0px 1px 0px rgba(0,0,0,0.75);
+}
+.input-group-btn:last-child>.btn, .authform .input-group-btn:last-child>.button, .input-group-btn:last-child>.btn-group {
+    z-index: 2;
+    margin-left: -1px;
+}
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child>.btn, .authform .input-group-btn:last-child>.button, .input-group-btn:last-child>.btn-group>.btn, .authform .input-group-btn:last-child>.btn-group>.button, .input-group-btn:last-child>.dropdown-toggle, .input-group-btn:first-child>.btn:not(:first-child), .authform .input-group-btn:first-child>.button:not(:first-child), .input-group-btn:first-child>.btn-group:not(:first-child)>.btn, .authform .input-group-btn:first-child>.btn-group:not(:first-child)>.button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+    z-index: 2;
+    margin-left: -1px;
+}
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group>.btn, .input-group-btn:last-child>.dropdown-toggle, .input-group-btn:first-child>.btn:not(:first-child), .input-group-btn:first-child>.btn-group:not(:first-child)>.btn {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.input-group-btn>.btn, .authform .input-group-btn>.button {
+    position: relative;
+}
+.input-group-btn>.btn {
+    position: relative;
+}
+.btn, .authform .button {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+button, select {
+    text-transform: none;
+}
+button {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+button, select {
+    text-transform: none;
+}
+button {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+.task-list {
+    border: 1px solid #abafa3;
+    background: #f0ad4e;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    width: 700px;
+}
+
+.mainpanel_text {
+    font-size: 29px;
+    text-transform: uppercase;
+    color: #333;
+    line-height: 120%;
+    text-shadow: 0 1px 0 #fff;
+    text-align: center;
+    font-weight: bold;
+    margin: 40px 60px 41px;
+    cursor: default;
+}
+
+.mainpanel_text .small {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.addprojectdiv {
+    text-align: center;
+    padding: 40px 0 80px;
+}
+
+.add-project {
+    background-image: -moz-linear-gradient(37% 0% -90deg, #5183be 0%, #375d9e 99%);
+    background-image: -webkit-gradient(linear, 37% 0%, 37% 100%, color-stop(0, #5183be), color-stop(0.99, #375d9e));
+    background-image: -webkit-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+    background-image: -o-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+    background-image: -ms-linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+    background-image: linear-gradient(-90deg, #5183be 0%, #375d9e 99%);
+    width: 190px;
+    height: 40px;
+    border-color: #315589;
+    border-width: 1px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    border-style: solid;
+    -moz-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+    -webkit-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,0.35);
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 120%;
+    color: white;
+    text-align: left;
+    text-shadow: 0px 1px 0px white;
+    padding-top: 10px;
+}
+
+.icon-plus {
+    background: url(/resources/icons/add_project.png) no-repeat;
+    padding: 2px 1px 15px 34px;
+}
+
+.col-xs-offset-2 {
+    margin-left: 16.66666667%;
+}
+
+.col-xs-8 {
+    width: 66.66666667%;
+}
+
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.container {
+    /*margin-right: auto;
+    margin-left: auto;*/
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.table-controls ul {
+    margin: 0 12px 0 -12px;
+    padding: 0;
+    word-spacing: -.3em;
+}
+
+.table-controls li {
+    display: inline-block;
+    margin: 0 0 0 10px;
+    padding: 0 0 0 10px;
+    vertical-align: text-bottom;
+    word-spacing: normal;
+}
+
+.credentials {
+    background: inherit;
+    color: ghostwhite;
+    background: rgba(0, 175, 97, 0.2);
+}
+
+.credentials p {
+    font-size: 120%;
+}
+
+.done {
+    text-decoration:line-through;
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
 }

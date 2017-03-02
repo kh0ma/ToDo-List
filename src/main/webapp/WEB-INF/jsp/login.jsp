@@ -111,7 +111,7 @@
         </div>
 
         <div class="row">
-            <div class="jumbotron col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="background: inherit; color: ghostwhite">
+            <div class="jumbotron col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 credentials" style=" " id="credentials">
                 <c:if test="${error}">
                     <div class="error">
                             ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
@@ -131,65 +131,5 @@
     </div>
     <jsp:include page="fragments/footer.jsp"/>
     <script type="text/javascript" src="/resources/js/login.js"></script>
-    <script>
-        /*var password = document.getElementById("passwordsignin")
-                , confirm_password = document.getElementById("comfirmpasswordsignin");
-
-        function validatePassword(){
-            if(password.value != confirm_password.value) {
-                confirm_password.setCustomValidity("Passwords Don't Match");
-            } else {
-                confirm_password.setCustomValidity('');
-            }
-        }
-
-        password.onchange = validatePassword;
-        confirm_password.onkeyup = validatePassword;*/
-        $(function() {
-            // Initialize form validation on the registration form.
-            // It has the name attribute "registration"
-            $("form[name='registration']").validate({
-                // Specify validation rules
-                rules: {
-                    // The key name on the left side is the name attribute
-                    // of an input field. Validation rules are defined
-                    // on the right side
-                    name: "required",
-                    email: {
-                        required: true,
-                        // Specify that email should be validated
-                        // by the built-in "email" rule
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 5
-                    },
-                    confirmpassword: {
-                        required: true,
-                        equalTo: "#password"
-                    }
-
-                },
-                // Specify validation error messages
-                messages: {
-                    name: "Please enter your name",
-                    password: {
-                        required: "Please provide a password",
-                        minlength: "Your password must be at least 5 characters long"
-                    },
-                    email: "Please enter a valid email address",
-                    confirmpassword: {
-                        equalTo: "Passwords must be same"
-                    }
-                },
-                // Make sure the form is submitted to the destination defined
-                // in the "action" attribute of the form when valid
-                submitHandler: function(form) {
-                    form.submit();
-                }
-            });
-        });
-    </script>
 </body>
 </html>

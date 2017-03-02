@@ -145,6 +145,10 @@ function taskRender(id, projectId, name, done, deadline, where) {
         $("#controlsDiv_"+id).addClass("hidden");
         $("#row_"+id).removeClass("mouseovertask");
     });
+
+    done?
+        $("#taskName_"+id).css("text-decoration","line-through"):
+        $("#taskName_"+id).css("text-decoration","none");
 }
 
 function addTask(addTaskButtonId) {
@@ -234,7 +238,12 @@ function setDone(checkBox) {
     $.ajax({
         type: "POST",
         url: ajaxUrl + projectId + "/tasks/" + id + "/status",
-        data: {done: done}
+        data: {done: done},
+        success: function () {
+            done?
+                $("#taskName_"+id).css("text-decoration","line-through"):
+                $("#taskName_"+id).css("text-decoration","none");
+        }
     });
 }
 
