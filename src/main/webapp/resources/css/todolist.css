@@ -171,6 +171,8 @@ body {
     background: none;
     border: none;
     color: lightgrey;
+    cursor: pointer;
+
 }
 
 .mouseovertask {
@@ -274,7 +276,6 @@ html {
     margin: 5px 0;
     padding: 1px 5px;
     border: 1px solid transparent;
-    cursor: pointer;
     text-align: left;
 }
 
@@ -792,4 +793,8 @@ button, input, optgroup, select, textarea {
     position: relative;
     display: table;
     border-collapse: separate;
+}
+
+.table-controls a:hover {
+    color:lightgray;
 }

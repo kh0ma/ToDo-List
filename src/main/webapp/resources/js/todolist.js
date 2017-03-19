@@ -195,6 +195,23 @@ function projectRender(id,name,where) {
     }).mouseleave(function(){
         $("#project_header_controls_"+id).addClass("hidden");
     });
+    var fixHelperModified = function(e, tr) {
+        var $originals = tr.children();
+        var $helper = tr.clone();
+        $helper.children().each(function(index) {
+            $(this).width($originals.eq(index).width())
+        });
+        return $helper;
+    };
+    $('#tbody_'+id).sortable({
+        axis: 'y',
+        helper: fixHelperModified,
+        handle: "#sortable_row",
+        update: function(event, ui) {
+            var productOrder = $(this).sortable('toArray').toString().replace(/row_/g,'');
+            console.log(productOrder);
+        }
+    });
 }
 
 function addProject() {
@@ -254,4 +271,16 @@ $('#editDeadLine').datetimepicker({
 /* OnPageLoad */
 $(function () {
     getProjects();
+
+    $('#ajax_project_load').sortable({
+        axis: 'y',
+        handle:"#sortable_project",
+        update: function(event, ui) {
+            var productOrder = $(this).sortable('toArray').toString().replace(/projectRow_/g,'');
+            console.log(productOrder);
+        }
+    });
 });
+
+
+

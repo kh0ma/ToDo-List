@@ -13,6 +13,7 @@
     <head>
         <jsp:include page="fragments/header.jsp"/>
         <link rel="stylesheet" href="webjars/datetimepicker/2.4.7/jquery.datetimepicker.css">
+        <link rel="stylesheet" href="webjars/jquery-ui/1.12.1/jquery-ui.css">
     </head>
     <body>
         <div class="container container-fluid text-center">
@@ -152,7 +153,7 @@
         <div hidden>
             <div class="project" id="projectRow_projectId_" style="display: block; padding-bottom: 25px; padding-top: 5px">
                 <div class="project-header" id="project_header_projectId_">
-                    <div class="project-field">
+                    <div style="cursor: move;" class="project-field" id="sortable_project">
                         <h2 id='projectHeaderName_projectId_'>
                         </h2>
                     </div>
@@ -199,10 +200,13 @@
                     <div class="row hidden" id="controlsDiv_taskId_">
                         <ul>
                             <li>
-                                <button id='editTask_taskId_projectId_' class="mybutton" onClick="editTask(this.id.split('_')[2], this.id.split('_')[1])" data-toggle='modal' data-target='#editTask'><span class='glyphicon glyphicon-pencil'></span></button>
+                                <a style="cursor: move;" id='sortable_row' class="mybutton"><span class='glyphicon glyphicon-sort'></span></a>
                             </li>
                             <li style="border-left: 1px solid #ccc;">
-                                <button id='deleteTask_taskId_projectId_' class="mybutton" onClick="deleteTask(this.id.split('_')[2],this.id.split('_')[1])" type="button"><span class='glyphicon glyphicon-trash'></span></button>
+                                <a id='editTask_taskId_projectId_' class="mybutton" onClick="editTask(this.id.split('_')[2], this.id.split('_')[1])" data-toggle='modal' data-target='#editTask'><span class='glyphicon glyphicon-pencil'></span></a>
+                            </li>
+                            <li style="border-left: 1px solid #ccc;">
+                                <a id='deleteTask_taskId_projectId_' class="mybutton" onClick="deleteTask(this.id.split('_')[2],this.id.split('_')[1])" type="button"><span class='glyphicon glyphicon-trash'></span></a>
                             </li>
                         </ul>
                     </div>
@@ -211,6 +215,8 @@
             </table>
         </div>
         <script type="text/javascript" src="webjars/datetimepicker/2.4.7/build/jquery.datetimepicker.full.min.js"></script>
+        <script type="text/javascript" src="webjars/jquery-ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript" src="/resources/js/todolist.js"></script>
+
     </body>
 </html>
