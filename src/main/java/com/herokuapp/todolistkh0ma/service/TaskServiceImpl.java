@@ -52,4 +52,20 @@ public class TaskServiceImpl implements TaskService {
         task.setDone(enabled);
         repository.save(task,projectId,userId);
     }
+
+    @Override
+    public void sort(String tasks, int projectId, int userId) {
+        String[] tasksArray = tasks.split(",");
+        for (int i = 0; i < tasksArray.length; i++) {
+            int id = 0;
+            try {
+                id = Integer.parseInt(tasksArray[i]);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+            Task task = get(id, projectId, userId);
+            task.setSortId(i);
+            save(task,projectId,userId);
+        }
+    }
 }

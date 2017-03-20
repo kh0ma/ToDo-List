@@ -21,4 +21,6 @@ public interface TaskService {
     Task update(Task task, int projectId, int userId) throws NotFoundException;
 
     void setEnabled(boolean enabled, int id,int projectId, int userId);
+
+    void sort(String tasks, int projectId, int userId);
 }

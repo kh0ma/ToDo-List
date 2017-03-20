@@ -28,6 +28,7 @@ CREATE TABLE user_roles
 CREATE TABLE projects
 (
   id        INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+  sort_id   INTEGER,
   name      VARCHAR NOT NULL,
   created   TIMESTAMP NOT NULL DEFAULT now(),
   user_id   INTEGER NOT NULL,
@@ -37,8 +38,9 @@ CREATE TABLE projects
 CREATE TABLE tasks
 (
   id         INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+  sort_id    INTEGER,
   name       VARCHAR NOT NULL,
-  done     BOOL DEFAULT FALSE,
+  done       BOOL DEFAULT FALSE,
   created    TIMESTAMP NOT NULL DEFAULT now(),
   priority   INTEGER NOT NULL DEFAULT 1,
   deadline   TIMESTAMP,

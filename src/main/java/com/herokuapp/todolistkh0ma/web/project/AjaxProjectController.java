@@ -50,4 +50,9 @@ public class AjaxProjectController extends AbstractProjectController{
     public void update(@RequestBody Project project, @PathVariable("id") int id) {
         super.update(project, id);
     }
+
+    @PostMapping(value = "/sort")
+    public void sort(@RequestParam("projects") String tasks) {
+        super.sort(tasks);
+    }
 }

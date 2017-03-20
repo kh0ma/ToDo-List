@@ -12,10 +12,10 @@ INSERT INTO user_roles (role, user_id) VALUES
   ('ROLE_ADMIN',  100001),
   ('ROLE_USER',   100001);
 
-INSERT INTO projects (name, user_id, created) VALUES
-  ('Business',  100000, '2017-01-15 12:00:00'),
-  ('Home',      100000, '2017-01-20 18:00:00'),
-  ('Tests',     100001, '2017-01-10 11:00:00');
+INSERT INTO projects (sort_id ,name, user_id, created) VALUES
+  (0,'Business',  100000, '2017-01-15 12:00:00'),
+  (1,'Home',      100000, '2017-01-20 18:00:00'),
+  (0,'Tests',     100001, '2017-01-10 11:00:00');
 
 INSERT INTO tasks (name, done, priority, deadline, project_id, user_id,created) VALUES
   ('Revise the contract', FALSE, 2, '2017-01-22 12:00:00', 100002, 100000, '2017-01-15 12:05:00'),

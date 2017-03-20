@@ -45,4 +45,20 @@ public class ProjectServiceImpl implements ProjectService {
         Assert.notNull(project, "project must not be null");
         return ExceptionUtil.checkNotFoundWithId(repository.save(project,userId),project.getId());
     }
+
+    @Override
+    public void sort(String projects, int userId) {
+        String[] projectsArray = projects.split(",");
+        for (int i = 0; i < projectsArray.length; i++) {
+            int id = 0;
+            try {
+                id = Integer.parseInt(projectsArray[i]);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
+            Project project = get(id, userId);
+            project.setSortId(i);
+            save(project,userId);
+        }
+    }
 }

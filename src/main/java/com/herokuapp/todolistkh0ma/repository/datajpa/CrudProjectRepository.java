@@ -23,6 +23,6 @@ public interface CrudProjectRepository extends JpaRepository<Project, Integer> {
 /*    @Override
     Project save(Project project);*/
 
-    @Query("SELECT p FROM Project p WHERE p.user.id=:userId ORDER BY p.created DESC")
+    @Query("SELECT p FROM Project p WHERE p.user.id=:userId ORDER BY p.sortId DESC, p.created DESC")
     List<Project> getAll(@Param("userId") int userId);
 }

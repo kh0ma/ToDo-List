@@ -1,5 +1,6 @@
 package com.herokuapp.todolistkh0ma.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.herokuapp.todolistkh0ma.util.PriorityConverter;
 
 import javax.persistence.*;
@@ -12,6 +13,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "tasks")
 public class Task extends BaseEntity {
+
+    @JsonIgnore
+    @Column(name = "sort_id")
+    protected Integer sortId;
 
     @Column(name = "done", nullable = false)
     private boolean done;
@@ -41,6 +46,9 @@ public class Task extends BaseEntity {
         }
         if (priority == null) {
             this.priority = Priority.NORMAL;
+        }
+        if (sortId == null) {
+            setSortId(0);
         }
     }
 
@@ -116,6 +124,9 @@ public class Task extends BaseEntity {
         this.created = created;
     }
 
+    public void setSortId(Integer sortId) {
+        this.sortId = sortId;
+    }
 
     public static enum  Priority
     {

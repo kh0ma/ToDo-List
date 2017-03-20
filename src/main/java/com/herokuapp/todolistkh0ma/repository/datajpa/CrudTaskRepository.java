@@ -20,6 +20,6 @@ public interface CrudTaskRepository extends JpaRepository<Task, Integer> {
     @Query("DELETE FROM Task t WHERE t.id=:id AND t.project.id=:projectId AND t.user.id=:userId")
     int delete(@Param("id") int id, @Param("projectId") int projectId, @Param("userId") int userId);
 
-    @Query("SELECT t FROM Task t WHERE t.project.id=:projectId AND t.user.id=:userId ORDER BY t.created DESC")
+    @Query("SELECT t FROM Task t WHERE t.project.id=:projectId AND t.user.id=:userId ORDER BY t.sortId ASC, t.created DESC")
     List<Task> getAll(@Param("projectId") int projectId, @Param("userId") int userId);
 }

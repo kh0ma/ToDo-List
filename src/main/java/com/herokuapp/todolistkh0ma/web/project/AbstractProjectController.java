@@ -51,4 +51,10 @@ public abstract class AbstractProjectController {
         log.info("update project {} for User {} ", project, userId);
         service.update(project, userId);
     }
+
+    public void sort(String projects) {
+        int userId = AuthorizedUser.id();
+        log.info("Sort projects [{}]",projects);
+        service.sort(projects,userId);
+    }
 }

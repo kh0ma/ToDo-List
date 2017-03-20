@@ -19,4 +19,6 @@ public interface ProjectService {
     List<Project> getAll(int userId);
 
     Project update(Project project, int userId) throws NotFoundException;
+
+    void sort(String projects, int userId);
 }

@@ -15,6 +15,11 @@ import java.util.List;
 @Entity
 @Table(name = "projects")
 public class Project extends BaseEntity {
+
+    @JsonIgnore
+    @Column(name = "sort_id")
+    protected Integer sortId;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -37,6 +42,9 @@ public class Project extends BaseEntity {
             this.created = LocalDateTime.now();
         }
 
+        if (this.sortId == null) {
+            setSortId(Integer.MAX_VALUE);
+        }
     }
 
     public Project(Integer id, String name, User user, LocalDateTime created) {
@@ -59,6 +67,10 @@ public class Project extends BaseEntity {
 
     public void setCreated(LocalDateTime created) {
         this.created = created;
+    }
+
+    public void setSortId(Integer sortId) {
+        this.sortId = sortId;
     }
 
     @Override

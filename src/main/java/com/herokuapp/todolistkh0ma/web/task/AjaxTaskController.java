@@ -62,4 +62,10 @@ public class AjaxTaskController extends AbstractTaskController{
                            @PathVariable("id") int id) {
         super.setEnabled(done,id,projectId);
     }
+
+    @PostMapping(value = "/sort")
+    public void sort(@RequestParam("tasks") String tasks,
+                     @PathVariable("projectId") int projectId) {
+        super.sort(tasks,projectId);
+    }
 }

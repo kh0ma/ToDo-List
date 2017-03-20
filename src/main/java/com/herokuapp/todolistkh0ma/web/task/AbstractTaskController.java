@@ -57,4 +57,10 @@ public abstract class AbstractTaskController {
         log.info("Task id=" + id + " is="+ (enabled ? "enable" : "disable"));
         service.setEnabled(enabled,id,projectId,userId);
     }
+
+    public void sort(String tasks, int projectId) {
+        int userId = AuthorizedUser.id();
+        log.info("Sort tasks [{}] to project = {}",tasks,projectId);
+        service.sort(tasks,projectId,userId);
+    }
 }

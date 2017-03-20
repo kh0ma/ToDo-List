@@ -208,8 +208,9 @@ function projectRender(id,name,where) {
         helper: fixHelperModified,
         handle: "#sortable_row",
         update: function(event, ui) {
-            var productOrder = $(this).sortable('toArray').toString().replace(/row_/g,'');
-            console.log(productOrder);
+            var tasks = $(this).sortable('toArray').toString().replace(/row_/g,'');
+            var projectId = $(this).parent().parent().parent().attr("id").replace("projectRow_","");
+            sortTasks(projectId,tasks);
         }
     });
 }
@@ -264,6 +265,22 @@ function setDone(checkBox) {
     });
 }
 
+function sortTasks(projectId,tasks) {
+    $.ajax({
+        type: "POST",
+        url: ajaxUrl + projectId + "/tasks/sort",
+        data: {tasks: tasks}
+    });
+}
+
+function sortProjects(projects) {
+    $.ajax({
+        type: "POST",
+        url: ajaxUrl + "sort",
+        data: {projects: projects}
+    });
+}
+
 $('#editDeadLine').datetimepicker({
     format:'Y-m-d H:i'
 });
@@ -276,8 +293,8 @@ $(function () {
         axis: 'y',
         handle:"#sortable_project",
         update: function(event, ui) {
-            var productOrder = $(this).sortable('toArray').toString().replace(/projectRow_/g,'');
-            console.log(productOrder);
+            var projects = $(this).sortable('toArray').toString().replace(/projectRow_/g,'');
+            sortProjects(projects);
         }
     });
 });
