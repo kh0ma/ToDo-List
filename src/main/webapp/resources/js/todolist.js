@@ -70,6 +70,10 @@ function updateTask() {
             $("#taskName_"+id).append(name);
             $("#checkBox_"+id+"_"+projectId).prop("checked", done);
 
+            done?
+                $("#taskName_"+id).css("text-decoration","line-through"):
+                $("#taskName_"+id).css("text-decoration","none");
+
             if(deadline==null||deadline.length==0) $("#deadline_"+id).addClass("hidden");
             else {
                 $("#deadline_"+id).removeClass("hidden");
